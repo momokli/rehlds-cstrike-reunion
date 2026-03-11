@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.system {
+    color: #FFFF00;
+}
+.info {
+    color: #00FF00;
+}
+.warning {
+    color: #FF9900;
+}
+.error {
+    color: #FF0000;
+}
+.success {
+    color: #00FF00;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+.blink {
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.server-status {
+    color: #00FF00;
+}
+.map-item {
+    color: #00CCFF;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                               ZUKKA LAN HUB                                  │</span><br>
+<span class="header">│                         CS 1.6 PUBLIC SERVER v1.0                               │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="system">[SYSTEM]</span> <span class="info">LAN_HUB_v0.27.10</span> | <span class="success">ONLINE</span> | <span class="info">00:00:00</span><br>
+<span class="system">[STATUS]</span> <span class="success">PUBLIC_MODE_ACTIVE</span> | <span class="info">SESSION_CASUAL_2025</span><br>
+<br>
+<span class="system">[SERVER]</span> <span class="info">zukka CS 1.6 Public Server</span><br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS 3.12.0 | ReGameDLL 5.26.0</span><br>
+<span class="system">[STATUS]</span> <span class="success">VAC_SECURED</span> | <span class="success">PUBLIC_ACCESS</span> | <span class="info">No Password</span><br>
+<br>
+<span class="header">════════════════════════════════════ SERVER FEATURES ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[SLOTS]</span> <span class="highlight">24 Player Slots</span> | <span class="info">Casual Gameplay</span><br>
+<span class="system">[COMMS]</span> <span class="info">All Talk Enabled</span> | <span class="info">Everyone Can Chat</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">FF: OFF | Freeze: 6s | Buy: 30s | Start: $800</span><br>
+<span class="system">[AUTOBALANCE]</span> <span class="success">ENABLED</span> | <span class="info">Team Balance Active</span><br>
+<br>
+<span class="header">══════════════════════════════════════ MAP POOL ══════════════════════════════════════</span><br>
+<br>
+<span class="system">[CLASSIC]</span> <span class="map-item">de_dust2</span> | <span class="map-item">de_inferno</span> | <span class="map-item">de_nuke</span><br>
+<span class="system">[CLASSIC]</span> <span class="map-item">de_train</span> | <span class="map-item">de_dust</span> | <span class="map-item">cs_office</span><br>
+<span class="system">[CLASSIC]</span> <span class="map-item">cs_italy</span> | <span class="map-item">de_aztec</span> | <span class="map-item">de_cbble</span><br>
+<span class="system">[EXPANDED]</span> <span class="map-item">de_piranesi</span> | <span class="map-item">cs_assault</span> | <span class="map-item">de_storm</span><br>
+<span class="system">[EXPANDED]</span> <span class="map-item">cs_747</span> | <span class="map-item">cs_havana</span> | <span class="map-item">de_chateau</span><br>
+<span class="system">[EXPANDED]</span> <span class="map-item">de_prodigy</span> | <span class="map-item">de_vertigo</span> | <span class="map-item">de_airstrip</span><br>
+<br>
+<span class="header">═══════════════════════════════════ CONNECTION INFO ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:27016</span><br>
+<span class="system">[PASSWORD]</span> <span class="success">No Password Required - Public Access</span><br>
+<span class="system">[RCON]</span> <span class="warning">Admin Access: zukka_public_rcon_secure</span><br>
+<br>
+<span class="header">═══════════════════════════════════════ RULES ════════════════════════════════════════</span><br>
+<br>
+<span class="system">[RULE 1]</span> <span class="warning">NO CHEATING/HACKING</span> - <span class="info">VAC Bans Enforced</span><br>
+<span class="system">[RULE 2]</span> <span class="warning">NO EXCESSIVE SPAMMING</span> - <span class="info">Respect Others</span><br>
+<span class="system">[RULE 3]</span> <span class="warning">NO RACIST/OFFENSIVE LANGUAGE</span> - <span class="info">Be Excellent</span><br>
+<span class="system">[RULE 4]</span> <span class="warning">RESPECT OTHER PLAYERS</span> - <span class="info">Casual Fun Environment</span><br>
+<span class="system">[RULE 5]</span> <span class="success">HAVE FUN!</span> - <span class="info">Classic CS 1.6 Experience</span><br>
+<br>
+<span class="header">═════════════════════════════════════ GAME ROSTER ════════════════════════════════════</span><br>
+<br>
+<span class="system">[ACTIVE]</span> <span class="server-status">● CS 1.6 Public Server</span> <span class="info">(You are here)</span><br>
+<span class="system">[ACTIVE]</span> <span class="server-status">● CS 1.6 Tournament Server</span> <span class="info">(Port 27015)</span><br>
+<span class="system">[ACTIVE]</span> <span class="server-status">● CS 1.6 Practice Server</span> <span class="info">(Port 27017)</span><br>
+<span class="system">[OTHER]</span> <span class="info">Check LAN_HUB for full game roster</span><br>
+<br>
+<span class="header">═══════════════════════════════════════ LINKS ════════════════════════════════════════</span><br>
+<br>
+<span class="system">[LAN EVENT]</span> <span class="highlight">lan.zukkafabrik.de</span> - <span class="info">Event Schedule & Info</span><br>
+<span class="system">[TOURNAMENT HUB]</span> <span class="highlight">hub.zukkafabrik.de</span> - <span class="info">Tournament Brackets</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span> | <span class="info">Region: Europe (3)</span><br>
+<br>
+<span class="header">═══════════════════════════════════════ SYSTEM ═══════════════════════════════════════</span><br>
+<br>
+<span class="system">[AUTH]</span> <span class="success">PUBLIC_ACCESS_GRANTED</span> | <span class="info">SESSION_PUBLIC_B</span><br>
+<span class="system">[LOG]</span> <span class="info">Basic Logging: </span><span class="success">ENABLED</span> <span class="info">(mp_logdetail 1)</span><br>
+<span class="system">[AUTOKICK]</span> <span class="info">Teamkill Punishment: </span><span class="success">ENABLED</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="system">│                        ZUKKA PUBLIC GAMING SERVERS                             │</span><br>
+<span class="header">│                  </span><span class="blink">_</span><span class="header"> WELCOME TO CLASSIC COUNTER-STRIKE 1.6 </span><span class="blink">_</span><span class="header">                  │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>

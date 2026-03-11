@@ -1,16 +1,108 @@
-name: cs1.6
+# zukka CS 1.6 Tournament Server System
+# Part of zukka LAN Tournament Infrastructure
+# Tournament Hub: hub.zukkafabrik.de | LAN Event: lan.zukkafabrik.de
+# Contact: lan@zukkafabrik.de
+name: zukka-cs16-tournament-system
+
 services:
-  cstrike-server:
+  tournament-server:
     build: .
-    container_name: rehlds-cstrike
+    container_name: cs16-tournament
     restart: unless-stopped
     security_opt:
       - seccomp:unconfined
     environment:
-      # Forces glibc 2.41+ to allow the executable stack for GoldSrc
       - GLIBC_TUNABLES=glibc.rtld.execstack=2
     ports:
       - "27015:27015"
       - "27015:27015/udp"
-    stdin_open: true  
+    volumes:
+      - ./servers/tournament/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/tournament/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/tournament/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
     tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "zukka CS 2v2 Tournament - Competitive CS 1.6",
+        "+map",
+        "de_dust2",
+        "+maxplayers",
+        "8",
+      ]
+
+  public-server:
+    build: .
+    container_name: cs16-public
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "27016:27015"
+      - "27016:27015/udp"
+    volumes:
+      - ./servers/public/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/public/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/public/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
+    tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "zukka CS 1.6 Public Server - Casual Fun",
+        "+map",
+        "de_dust2",
+        "+maxplayers",
+        "24",
+      ]
+
+  practice-server:
+    build: .
+    container_name: cs16-practice
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "27017:27015"
+      - "27017:27015/udp"
+    volumes:
+      - ./servers/practice/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/practice/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/practice/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
+    tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "zukka CS 1.6 Practice Server - Training Ground",
+        "+map",
+        "de_dust2",
+        "+maxplayers",
+        "12",
+      ]

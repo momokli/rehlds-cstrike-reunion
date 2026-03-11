@@ -1,0 +1,109 @@
+# Docker
+*.log
+logs/
+data/
+volumes/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdk/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+temp/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Server runtime files
+*.dem
+*.zip
+*.bz2
+*.gz
+
+# Game server specific
+*.bsp
+*.nav
+*.res
+*.txt (except config ones, but we'll be specific)
+
+# Security
+*.pem
+*.key
+*.crt
+*.csr
+
+# Binary files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Misc
+.dockerignore
+!.gitignore
+!.env.example

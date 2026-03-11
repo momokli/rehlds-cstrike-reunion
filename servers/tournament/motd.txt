@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.system {
+    color: #FFFF00;
+}
+.info {
+    color: #00FF00;
+}
+.warning {
+    color: #FF9900;
+}
+.error {
+    color: #FF0000;
+}
+.success {
+    color: #00FF00;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+.blink {
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                               ZUKKA LAN HUB                                  │</span><br>
+<span class="header">│                         CS 2v2 TOURNAMENT SERVER v1.0                           │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="system">[SYSTEM]</span> <span class="info">LAN_HUB_v0.27.10</span> | <span class="success">ONLINE</span> | <span class="info">00:00:00</span><br>
+<span class="system">[STATUS]</span> <span class="success">TOURNAMENT_MODE_ACTIVE</span> | <span class="info">SESSION_CS2V2_2025</span><br>
+<br>
+<span class="system">[SERVER]</span> <span class="info">zukka CS 2v2 Tournament</span><br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS 3.12.0 | ReGameDLL 5.26.0</span><br>
+<span class="system">[STATUS]</span> <span class="success">VAC_SECURED</span> | <span class="success">TOURNAMENT_CFG_LOADED</span><br>
+<br>
+<span class="header">════════════════════════════════════ TOURNAMENT INFO ════════════════════════════════════</span><br>
+<br>
+<span class="system">[FORMAT]</span> <span class="highlight">2v2 Competitive</span> | <span class="info">MR15</span> | <span class="info">Best of 1 Maps</span><br>
+<span class="system">[SLOTS]</span> <span class="info">8 Total (4 Players + 4 Spectators)</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">FF: ON | Freeze: 5s | Buy: 15s | Start: $800</span><br>
+<span class="system">[COMMS]</span> <span class="info">Team Voice Only | Spectator Talk: Enabled</span><br>
+<br>
+<span class="header">══════════════════════════════════════ MAP POOL ══════════════════════════════════════</span><br>
+<br>
+<span class="system">[POOL]</span> <span class="info">de_dust2</span> | <span class="info">de_inferno</span> | <span class="info">cs_office</span><br>
+<span class="system">[POOL]</span> <span class="info">de_train</span> | <span class="info">de_nuke</span> | <span class="info">de_cbble</span><br>
+<span class="system">[POOL]</span> <span class="info">cs_italy</span> | <span class="info">de_aztec</span> | <span class="info">cs_militia</span><br>
+<span class="system">[POOL]</span> <span class="info">de_dust</span><br>
+<br>
+<span class="header">═══════════════════════════════════ CONNECTION INFO ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:27015</span><br>
+<span class="system">[PASSWORD]</span> <span class="warning">Tournament Password Required</span> <span class="info">(Check LAN_HUB)</span><br>
+<span class="system">[RCON]</span> <span class="warning">Admin Access: zukka_tournament_rcon_secure</span><br>
+<br>
+<span class="header">══════════════════════════════════════ COMMANDS ══════════════════════════════════════</span><br>
+<br>
+<span class="system">[READY]</span> <span class="command">.ready</span> <span class="info">- Signal match readiness</span><br>
+<span class="system">[STATUS]</span> <span class="command">.status</span> <span class="info">- Check tournament status</span><br>
+<span class="system">[SCORE]</span> <span class="command">.score</span> <span class="info">- Display match scores</span><br>
+<br>
+<span class="header">═════════════════════════════════════ TOURNAMENT HUB ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[HUB]</span> <span class="info">Tournament Brackets: </span><span class="highlight">hub.zukkafabrik.de</span><br>
+<span class="system">[LAN]</span> <span class="info">Event Info: </span><span class="highlight">lan.zukkafabrik.de</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span> | <span class="info">Region: Europe (3)</span><br>
+<br>
+<span class="header">═══════════════════════════════════════ SYSTEM ═══════════════════════════════════════</span><br>
+<br>
+<span class="system">[AUTH]</span> <span class="success">SYSTEM_AUTH_VALID</span> | <span class="info">SESSION_CS2V2_B</span><br>
+<span class="system">[WARNING]</span> <span class="warning">NO_UNAUTHORIZED_ACCESS</span> | <span class="info">TOURNAMENT_INTEGRITY_ENFORCED</span><br>
+<br>
+<span class="system">[LOG]</span> <span class="info">Logging: </span><span class="success">ENABLED</span> <span class="info">(mp_logdetail 3)</span><br>
+<span class="system">[DEMO]</span> <span class="info">Match Recording: </span><span class="warning">AVAILABLE_VIA_HUB</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="system">│                           ZUKKA TOURNAMENT SYSTEMS                             │</span><br>
+<span class="header">│                  </span><span class="blink">_</span><span class="header"> WAITING FOR TOURNAMENT PARTICIPANTS </span><span class="blink">_</span><span class="header">                  │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>
