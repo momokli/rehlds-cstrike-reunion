@@ -1,0 +1,16 @@
+name: cs1.6
+services:
+  cstrike-server:
+    build: .
+    container_name: rehlds-cstrike
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      # Forces glibc 2.41+ to allow the executable stack for GoldSrc
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "27015:27015"
+      - "27015:27015/udp"
+    stdin_open: true  
+    tty: true
