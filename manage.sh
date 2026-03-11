@@ -11,6 +11,11 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOCKER_COMPOSE_FILE="$PROJECT_ROOT/docker-compose.yml"
 QUERY_SCRIPT="$PROJECT_ROOT/query_server.py"
 
+# Load environment variables
+if [ -f "$PROJECT_ROOT/.env" ]; then
+    export $(grep -v '^#' "$PROJECT_ROOT/.env" | xargs)
+fi
+
 # Color codes for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -19,9 +24,9 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Server definitions
-SERVERS=("tournament" "public" "practice")
-SERVER_PORTS=("27015" "27016" "27017")
-SERVER_NAMES=("zukka Tournament" "zukka Public" "zukka Practice")
+SERVERS=("tournament" "public" "practice" "gungame")
+SERVER_PORTS=("${TOURNAMENT_PORT:-27015}" "${PUBLIC_PORT:-27016}" "${PRACTICE_PORT:-27017}" "${GUNGAME_PORT:-27018}")
+SERVER_NAMES=("zukka Tournament Server" "zukka Team Deathmatch" "zukka FFA Deathmatch" "zukka GunGame")
 
 # Helper functions
 print_header() {
@@ -401,9 +406,10 @@ show_help() {
     echo "    update <server>         Update config and restart server"
     echo ""
     echo "  ${YELLOW}Available Servers:${NC}"
-    echo "    tournament              2v2 Tournament Server (port 27015)"
-    echo "    public                  Public Casual Server (port 27016)"
-    echo "    practice                Practice/Training Server (port 27017)"
+    echo "tournament              5v5 Tournament Server (port 27015)"
+    echo "public                  Team Deathmatch Server (port 27016)"
+    echo "practice                FFA Deathmatch Server (port 27017)"
+    echo "gungame                 GunGame Server (port 27018)"
     echo ""
     echo "  ${YELLOW}Examples:${NC}"
     echo "    ./manage.sh start all"
@@ -413,9 +419,10 @@ show_help() {
     echo "    ./manage.sh restore backup/20250101_120000"
     echo ""
     echo -e "${BLUE}Server Ports:${NC}"
-    echo "  Tournament: 27015"
-    echo "  Public:     27016"
-    echo "  Practice:   27017"
+    echo "  Tournament: ${TOURNAMENT_PORT:-27015}"
+    echo "  Public:     ${PUBLIC_PORT:-27016}"
+    echo "  Practice:   ${PRACTICE_PORT:-27017}"
+    echo "  GunGame:    ${GUNGAME_PORT:-27018}"
 }
 
 # Main script logic

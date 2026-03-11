@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.info {
+    color: #00FF00;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                            ZUKKA GUNGAME SERVER                                │</span><br>
+<span class="header">│                       CS 1.6 GUNGAME - WEAPON PROGRESSION                       │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="header">[SERVER]</span> <span class="info">zukka CS 1.6 GunGame - Weapon Progression</span><br>
+<span class="header">[MODE]</span> <span class="highlight">Free-for-All GunGame</span> | <span class="info">Instant Respawn</span><br>
+<span class="header">[SLOTS]</span> <span class="info">16 players max</span><br>
+<br>
+<span class="header">══════════════════════════════════ GUNGAME RULES ═════════════════════════════════</span><br>
+<br>
+<span class="header">[RULES]</span> <span class="info">Kill with current weapon to advance to next</span><br>
+<span class="header">[RULES]</span> <span class="info">Knife kill = level down (humiliation)</span><br>
+<span class="header">[RULES]</span> <span class="info">Grenade kill = stay on same level</span><br>
+<span class="header">[RULES]</span> <span class="info">First to reach final weapon wins!</span><br>
+<br>
+<span class="header">══════════════════════════════════ CONNECTION INFO ═══════════════════════════════</span><br>
+<br>
+<span class="header">[CONNECT]</span> <span class="command">connect [SERVER_IP]:[PORT]</span><br>
+<span class="header">[PASSWORD]</span> <span class="info">No password required</span><br>
+<br>
+<span class="header">═══════════════════════════════════ MAP ROTATION ════════════════════════════════</span><br>
+<br>
+<span class="header">[MAPS]</span> <span class="info">de_dust2, de_inferno, cs_office, de_nuke</span><br>
+<span class="header">[MAPS]</span> <span class="info">de_aztec, de_dust, de_cbble, cs_italy</span><br>
+<span class="header">[MAPS]</span> <span class="info">cs_militia, de_train, de_prodigy, de_vertigo</span><br>
+<br>
+<span class="header">══════════════════════════════════ SERVER INFO ══════════════════════════════════</span><br>
+<br>
+<span class="header">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS | ReGameDLL | AMX Mod X</span><br>
+<span class="header">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                           HAVE FUN & GOOD LUCK!                               │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>

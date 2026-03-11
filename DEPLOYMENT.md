@@ -2,46 +2,56 @@
 
 ## Overview
 
-This guide covers the deployment and management of the zukka CS 1.6 Tournament System on a production server. The system includes three distinct Counter-Strike 1.6 servers:
+This guide covers the deployment and management of the zukka CS 1.6 LAN Party Server System on a production server. The system includes four distinct Counter-Strike 1.6 servers:
 
-1. **Tournament Server** (Port 27015): 2v2 competitive matches for tournament brackets
-2. **Public Server** (Port 27016): 24-player casual server for warm-up and community play
-3. **Practice Server** (Port 27017): 12-player training server with cheat commands enabled
+1. **Tournament Server** (Port 27015): 5v5 competitive matches on empty maps
+2. **Team Deathmatch Server** (Port 27016): Casual team-based play for up to 16 players
+3. **FFA Deathmatch Server** (Port 27017): Free-for-all with instant respawn
+4. **GunGame Server** (Port 27018): Weapon progression mode for up to 16 players
 
 ## Prerequisites
 
 ### Server Requirements
+
 - **OS**: Linux (Ubuntu 20.04+ recommended, but any Docker-compatible Linux)
 - **CPU**: 2+ cores (4+ recommended for running all three servers)
 - **RAM**: 4GB+ (8GB+ recommended)
 - **Storage**: 10GB+ free space
-- **Network**: Public IP address with ports 27015-27017 TCP/UDP open
+- **Network**: Public IP address with ports 27015-27018 TCP/UDP open
 
 ### Software Requirements
+
 - **Docker**: Version 20.10+ [Install Guide](https://docs.docker.com/engine/install/)
 - **Docker Compose**: Version 2.0+ [Install Guide](https://docs.docker.com/compose/install/)
 - **Git**: Latest version
 - **Python 3**: For management tools (optional but recommended)
 
 ### Network Configuration
+
 Ensure the following ports are open in your firewall:
+
 ```bash
 # Tournament Server
 27015/tcp
 27015/udp
 
-# Public Server  
+# Team Deathmatch Server
 27016/tcp
 27016/udp
 
-# Practice Server
+# FFA Deathmatch Server
 27017/tcp
 27017/udp
+
+# GunGame Server
+27018/tcp
+27018/udp
 ```
 
 ## Initial Deployment
 
 ### 1. Clone the Repository
+
 ```bash
 # Clone the repository to your server
 git clone git@github.com:momokli/rehlds-cstrike-reunion.git
@@ -53,6 +63,7 @@ cd rehlds-cstrike-reunion
 ```
 
 ### 2. Set Up Environment Configuration
+
 ```bash
 # Copy the environment template
 cp .env.example .env
@@ -62,6 +73,7 @@ nano .env
 ```
 
 **Key .env Variables to Configure:**
+
 ```bash
 # External server IP (for server listings and MOTD)
 SERVER_EXTERNAL_IP="your.public.ip.address"
@@ -76,6 +88,7 @@ PRACTICE_RCON_PASSWORD="change_this_to_secure_password"
 ```
 
 ### 3. Build and Start Servers
+
 ```bash
 # Make the deployment script executable
 chmod +x deploy.sh
@@ -92,6 +105,7 @@ docker compose up -d
 ```
 
 ### 4. Verify Deployment
+
 ```bash
 # Check if all containers are running
 docker compose ps
@@ -108,6 +122,7 @@ python3 query_server.py localhost 27015
 The `deploy.sh` script automates the entire deployment process:
 
 ### Basic Deployment
+
 ```bash
 # Deploy/update all servers (default action)
 ./deploy.sh
@@ -117,6 +132,7 @@ The `deploy.sh` script automates the entire deployment process:
 ```
 
 ### Deployment Options
+
 ```bash
 # Show deployment status
 ./deploy.sh status
@@ -135,6 +151,7 @@ The `deploy.sh` script automates the entire deployment process:
 ```
 
 ### Rollback Deployment
+
 ```bash
 # List available backups
 ls -la backups/
@@ -146,6 +163,7 @@ ls -la backups/
 ## Server Management
 
 ### Using manage.sh
+
 The `manage.sh` script provides easy server management:
 
 ```bash
@@ -174,6 +192,7 @@ The `manage.sh` script provides easy server management:
 ```
 
 ### Manual Docker Compose Commands
+
 ```bash
 # View all container status
 docker compose ps
@@ -194,6 +213,7 @@ docker compose up -d
 ```
 
 ### RCON Administration
+
 Use the RCON test client for server administration:
 
 ```bash
@@ -210,6 +230,7 @@ python3 rcon_test.py tournament interactive
 ```
 
 **Common RCON Commands:**
+
 ```bash
 status                     # Show server status and player list
 map de_dust2              # Change to de_dust2
@@ -225,7 +246,9 @@ exec server.cfg          # Execute server config
 ## Monitoring and Maintenance
 
 ### Log Files
+
 Server logs are stored in Docker containers and can be accessed via:
+
 ```bash
 # View recent logs
 docker compose logs tournament-server --tail=100
@@ -238,6 +261,7 @@ docker compose logs tournament-server -f
 ```
 
 ### Performance Monitoring
+
 ```bash
 # Check container resource usage
 docker stats
@@ -250,6 +274,7 @@ docker system prune -a
 ```
 
 ### Regular Maintenance Tasks
+
 ```bash
 # Weekly: Update Docker images
 docker compose pull
@@ -266,6 +291,7 @@ find backups/ -type d -mtime +30 -exec rm -rf {} \;
 ## Configuration Management
 
 ### Server Configuration Files
+
 Configuration files are stored in the `servers/` directory:
 
 ```
@@ -285,17 +311,20 @@ servers/
 ```
 
 ### Customizing Server Settings
+
 1. Edit the appropriate `.cfg` file in the `servers/` directory
 2. Apply changes:
+
    ```bash
    # Update and restart specific server
    ./manage.sh update tournament
-   
+
    # Or restart all servers
    docker compose restart
    ```
 
 ### Adding Custom Maps
+
 1. Place `.bsp` files in a directory on your server
 2. Mount the directory to the containers (modify `docker-compose.yml`):
    ```yaml
@@ -309,6 +338,7 @@ servers/
 ### Common Issues
 
 **Server Not Starting:**
+
 ```bash
 # Check Docker logs
 docker compose logs tournament-server
@@ -321,6 +351,7 @@ docker compose restart tournament-server
 ```
 
 **RCON Not Working:**
+
 ```bash
 # Verify RCON password in .env file
 grep RCON_PASSWORD .env
@@ -333,6 +364,7 @@ docker compose logs tournament-server | grep -i rcon
 ```
 
 **High CPU/RAM Usage:**
+
 ```bash
 # Check container resource usage
 docker stats
@@ -345,6 +377,7 @@ docker compose restart tournament-server
 ```
 
 ### Debug Commands
+
 ```bash
 # Check server connectivity
 python3 query_server.py localhost 27015 --all
@@ -370,7 +403,9 @@ Ensure Docker Desktop is properly configured with WSL2 integration. Port forward
 ## Backup and Rollback
 
 ### Automatic Backups
+
 The deployment script automatically creates backups before each deployment:
+
 ```bash
 # Backups are stored in:
 ls -la backups/
@@ -379,6 +414,7 @@ ls -la backups/
 ```
 
 ### Manual Backups
+
 ```bash
 # Create manual backup
 ./manage.sh backup
@@ -390,6 +426,7 @@ cp .env .env.backup
 ```
 
 ### Restoring from Backup
+
 ```bash
 # Restore using deployment script
 ./deploy.sh rollback backups/20240101_120000
@@ -403,18 +440,21 @@ cp backups/20240101_120000/.env .
 ## Security Considerations
 
 ### RCON Passwords
+
 1. **Change default passwords** in `.env` file
 2. **Use strong passwords** with mix of characters
 3. **Restrict RCON access** to trusted administrators
 4. **Never commit `.env` file** to version control
 
 ### Server Security
+
 1. **Keep Docker updated**: `sudo apt-get update && sudo apt-get upgrade docker-ce`
 2. **Regular security updates**: Apply OS and Docker security patches
 3. **Firewall configuration**: Only open necessary ports (27015-27017)
 4. **Monitor logs**: Regularly check for suspicious activity
 
 ### Network Security
+
 ```bash
 # Configure firewall (example with UFW)
 sudo ufw allow 27015:27017/tcp
@@ -431,12 +471,15 @@ iptables -A INPUT -p udp --dport 27015:27017 -j ACCEPT
 The tournament servers are designed to integrate with the zukka tournament infrastructure:
 
 ### Tournament Hub Connection
+
 - **Tournament Brackets**: [hub.zukkafabrik.de](https://hub.zukkafabrik.de)
 - **LAN Event Info**: [lan.zukkafabrik.de](https://lan.zukkafabrik.de)
 - **Contact**: lan@zukkafabrik.de
 
 ### Setting Match Passwords
+
 Match-specific passwords should be set via the tournament hub or RCON:
+
 ```bash
 # Set tournament password via RCON
 python3 rcon_test.py tournament cmd "sv_password tournament_match_123"
@@ -446,7 +489,9 @@ python3 rcon_test.py tournament cmd "sv_password"
 ```
 
 ### Player Connection Instructions
+
 Players connect using tournament information from the hub:
+
 ```
 connect [SERVER_IP]:27015; password [TOURNAMENT_PASSWORD]
 ```
@@ -454,6 +499,7 @@ connect [SERVER_IP]:27015; password [TOURNAMENT_PASSWORD]
 ## Performance Optimization
 
 ### Server Settings for Performance
+
 Edit `server.cfg` files for optimal performance:
 
 ```bash
@@ -468,7 +514,9 @@ sys_ticrate 100  # 100 is standard, increase for better physics
 ```
 
 ### Docker Resource Limits
+
 Add resource limits to `docker-compose.yml` if needed:
+
 ```yaml
 services:
   tournament-server:
@@ -476,14 +524,15 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.0'
+          cpus: "1.0"
           memory: 1G
         reservations:
-          cpus: '0.5'
+          cpus: "0.5"
           memory: 512M
 ```
 
 ### Monitoring Performance
+
 ```bash
 # Monitor container performance
 docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}"
@@ -495,6 +544,7 @@ timeout 5 python3 query_server.py localhost 27015
 ## Updating the System
 
 ### Regular Updates
+
 ```bash
 # Pull latest changes from repository
 git pull origin main
@@ -509,6 +559,7 @@ docker compose up -d
 ```
 
 ### Major Version Updates
+
 For major updates that change configuration formats:
 
 1. **Backup current setup**: `./manage.sh backup`
@@ -519,16 +570,19 @@ For major updates that change configuration formats:
 ## Support and Resources
 
 ### Documentation
+
 - **README.md**: Project overview and quick start guide
 - **DEPLOYMENT.md**: This deployment guide
 - **GitHub Repository**: [github.com/momokli/rehlds-cstrike-reunion](https://github.com/momokli/rehlds-cstrike-reunion)
 
 ### Community and Support
+
 - **Tournament Hub**: [hub.zukkafabrik.de](https://hub.zukkafabrik.de)
 - **LAN Event Info**: [lan.zukkafabrik.de](https://lan.zukkafabrik.de)
 - **Contact**: lan@zukkafabrik.de
 
 ### Troubleshooting Resources
+
 - **Docker Documentation**: [docs.docker.com](https://docs.docker.com)
 - **ReHLDS Documentation**: [github.com/ReHLDS](https://github.com/ReHLDS)
 - **CS 1.6 Server Administration Guides**: Various community resources

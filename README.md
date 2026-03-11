@@ -1,31 +1,33 @@
-# zukka CS 1.6 Multi-Server Tournament System
+# zukka CS 1.6 LAN Party Server System
 
-A Docker-based multi-server setup for Counter-Strike 1.6 tournament play, hosted by zukka LAN Community. This system powers the CS 2v2 Tournament brackets at [hub.zukkafabrik.de](https://hub.zukkafabrik.de) and is part of the zukka LAN event infrastructure at [lan.zukkafabrik.de](https://lan.zukkafabrik.de).
+A Docker-based multi-server setup for Counter-Strike 1.6 LAN parties, hosted by zukka LAN Community. This system provides four different game modes for up to 16 players and is part of the zukka LAN event infrastructure at [lan.zukkafabrik.de](https://lan.zukkafabrik.de).
 
 ## Features
 
-- **Three Tournament-Ready Servers**:
-  - **Tournament Server**: Competitive 2v2 format for zukka tournament brackets (8 slots: 4 players + 4 spectators)
-  - **Public Server**: Casual 24-player server for warm-up and community play
-  - **Practice Server**: Training ground with cheat commands enabled for skill development
+- **Four Game Mode Servers**:
+  - **Tournament Server**: 5v5 competitive matches on empty maps (12 slots: 5v5 + 2 spectators)
+  - **Team Deathmatch Server**: Casual team-based play for up to 16 players
+  - **FFA Deathmatch Server**: Free-for-all with instant respawn for up to 16 players
+  - **GunGame Server**: Weapon progression mode for up to 16 players with AMX Mod X plugin
 
-- **zukka Tournament Integration**:
-  - Integrated with zukka LAN_HUB tournament system
-  - Console-style MOTD with tournament information
-  - Direct links to tournament brackets at hub.zukkafabrik.de
+- **LAN Party Ready**:
+  - Simple deployment with Docker Compose
+  - Configurable ports via environment variables
+  - RCON administration tools included
   - Contact: lan@zukkafabrik.de
 
 - **Modern CS 1.6 Stack**:
   - ReHLDS (Reverse-engineered Half-Life Dedicated Server)
   - ReGameDLL (Enhanced game logic for competitive features)
   - ReUnion (SteamID hash and anti-cheat improvements)
-  - AMX Mod X 1.8.2 (Plugin support)
+  - AMX Mod X 1.8.2 with GunGame plugin pre-installed
   - Metamod-r (Plugin loader)
 
 - **Dockerized Deployment**:
   - Isolated containers for each server
   - Persistent configuration via bind mounts
-  - Easy scaling and management for LAN events
+  - Easy management scripts for LAN events
+  - Port configuration via .env file
 
 ## Quick Start
 
@@ -46,6 +48,7 @@ docker compose up -d
 docker compose up tournament-server -d
 docker compose up public-server -d
 docker compose up practice-server -d
+docker compose up gungame-server -d
 ```
 
 ### Checking Server Status
@@ -63,11 +66,12 @@ docker compose down
 
 ## Server Details
 
-| Server     | Port  | Max Players | Description                            | RCON Password                  |
-| ---------- | ----- | ----------- | -------------------------------------- | ------------------------------ |
-| Tournament | 27015 | 8           | Competitive 2v2 format, team talk only | `zukka_tournament_rcon_secure` |
-| Public     | 27016 | 24          | Casual play, all-talk enabled          | `zukka_public_rcon_secure`     |
-| Practice   | 27017 | 12          | Training ground, cheats enabled        | `zukka_practice_rcon_secure`   |
+| Server     | Port  | Max Players | Description                     | RCON Password                  |
+| ---------- | ----- | ----------- | ------------------------------- | ------------------------------ |
+| Tournament | 27015 | 12          | 5v5 competitive on empty maps   | `zukka_tournament_rcon_secure` |
+| Public     | 27016 | 16          | Team Deathmatch, casual play    | `zukka_public_rcon_secure`     |
+| Practice   | 27017 | 16          | FFA Deathmatch, instant respawn | `zukka_practice_rcon_secure`   |
+| GunGame    | 27018 | 16          | Weapon progression mode         | `zukka_gungame_rcon_secure`    |
 
 ### Tournament Server (CS 2v2 Competitive)
 
@@ -130,6 +134,15 @@ Players connect using tournament information from the hub:
 
 ```
 connect [SERVER_IP]:27015; password [TOURNAMENT_PASSWORD]
+
+# Team Deathmatch
+connect [SERVER_IP]:27016
+
+# FFA Deathmatch
+connect [SERVER_IP]:27017
+
+# GunGame
+connect [SERVER_IP]:27018
 ```
 
 ## Configuration
@@ -160,6 +173,7 @@ servers/
 2. Restart the corresponding container:
    ```bash
    docker compose restart tournament-server
+   docker compose restart gungame-server
    ```
 
 ### Adding Custom Maps
@@ -180,7 +194,7 @@ The `docker-compose.yml` defines three services with:
 - **Security**: `seccomp:unconfined` for GoldSrc compatibility
 - **Environment**: `GLIBC_TUNABLES=glibc.rtld.execstack=2` for glibc 2.41+
 - **Volumes**: Configuration files mounted read-only
-- **Ports**: Host ports 27015-27017 mapped to container port 27015
+- **Ports**: Host ports 27015-27018 mapped to container port 27015
 
 ## Query Tool
 
@@ -195,6 +209,9 @@ python3 query_server.py --list
 
 # Show all technical details
 python3 query_server.py localhost 27015 --all
+
+# Test GunGame server
+python3 query_server.py localhost 27018
 ```
 
 The tool uses the A2S_INFO protocol to retrieve server information including hostname, map, player count, and VAC status.
@@ -243,6 +260,7 @@ If you see: `The requested image's platform (linux/amd64) does not match the det
 3. Verify port availability:
    ```bash
    netstat -an | grep 27015
+   netstat -an | grep 27018
    ```
 
 ### Configuration Not Loading
@@ -279,6 +297,12 @@ Use RCON clients like HLSW, GameTracker, or command-line tools:
 ```bash
 # Example using rcon-cli (install via npm install -g rcon-cli)
 rcon-cli --host localhost --port 27015 --password zukka_tournament_rcon_secure status
+
+# Test GunGame server RCON
+python3 rcon_test.py gungame test
+python3 rcon_test.py gungame cmd "status"
+```
+
 ```
 
 Common RCON commands:
@@ -316,3 +340,4 @@ For tournament and server issues:
 2. Review server logs with `docker compose logs`
 3. Contact tournament organizers: lan@zukkafabrik.de
 4. Update configuration files in `servers/` directory for server-specific changes
+```

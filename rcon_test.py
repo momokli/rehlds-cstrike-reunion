@@ -31,6 +31,12 @@ DEFAULT_SERVERS = {
         "password": "zukka_practice_rcon_secure",
         "description": "zukka Practice Server (Training)",
     },
+    "gungame": {
+        "host": "localhost",
+        "port": 27018,
+        "password": "zukka_gungame_rcon_secure",
+        "description": "zukka GunGame Server (Weapon Progression)",
+    },
 }
 
 
@@ -349,6 +355,7 @@ Default server configurations:
   tournament: localhost:27015 (password: zukka_tournament_rcon_secure)
   public:     localhost:27016 (password: zukka_public_rcon_secure)
   practice:   localhost:27017 (password: zukka_practice_rcon_secure)
+  gungame:    localhost:27018 (password: zukka_gungame_rcon_secure)
         """,
     )
 
@@ -356,7 +363,7 @@ Default server configurations:
     parser.add_argument(
         "server",
         nargs="?",
-        choices=["tournament", "public", "practice"],
+        choices=["tournament", "public", "practice", "gungame"],
         help="Server to connect to (uses default configuration)",
     )
 
