@@ -2,6 +2,10 @@ FROM ghcr.io/blsalin/rehlds-cstrike:latest
 
 USER root
 
+# Copy downloaded assets from build context
+COPY docker-assets/maps/ /opt/steam/hlds/cstrike/maps/
+COPY docker-assets/plugins/ /opt/steam/hlds/cstrike/addons/amxmodx/plugins/
+
 RUN apt-get update && \
     apt-get install -y wget unzip xz-utils && \
     wget https://github.com/rehlds/ReUnion/releases/download/0.2.0.25/reunion-0.2.0.25.zip && \
@@ -10,28 +14,40 @@ RUN apt-get update && \
     cp /tmp/reunion/bin/Linux/reunion_mm_i386.so /opt/steam/hlds/cstrike/addons/reunion/ && \
     cp /tmp/reunion/reunion.cfg /opt/steam/hlds/cstrike/ && \
     sed -i 's/^SteamIdHashSalt.*/SteamIdHashSalt = ThisIsMyRandomSalt123456789/' /opt/steam/hlds/cstrike/reunion.cfg && \
-    echo "linux addons/reunion/reunion_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
+    echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" > /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
     rm -rf /tmp/reunion reunion-0.2.0.25.zip && \
     wget https://amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5474-base-linux.tar.gz && \
     tar -xzf amxmodx-1.10.0-git5474-base-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
     wget https://amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5474-cstrike-linux.tar.gz && \
     tar -xzf amxmodx-1.10.0-git5474-cstrike-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
-    echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
+    echo "linux addons/reunion/reunion_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
     rm -f amxmodx-1.10.0-git5474-base-linux.tar.gz amxmodx-1.10.0-git5474-cstrike-linux.tar.gz && \
     wget https://github.com/yapb/yapb/releases/download/4.4.957/yapb-4.4.957-linux.tar.xz && \
     tar -xf yapb-4.4.957-linux.tar.xz -C /tmp/ && \
     mkdir -p /opt/steam/hlds/cstrike/addons/yapb && \
     cp -r /tmp/addons/yapb/* /opt/steam/hlds/cstrike/addons/yapb/ && \
     cp /tmp/addons/yapb/yapb.cfg /opt/steam/hlds/cstrike/ 2>/dev/null || true && \
-    echo "linux addons/yapb/bin/yapb.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
     rm -f yapb-4.4.957-linux.tar.xz && \
     rm -rf /tmp/addons && \
+    wget https://github.com/rehlds/ReAPI/releases/download/5.26.0.338/reapi-bin-5.26.0.338.zip -O /tmp/reapi.zip && \
+    unzip /tmp/reapi.zip -d /tmp/reapi && \
+    mkdir -p /opt/steam/hlds/cstrike/addons/amxmodx/modules && \
+    cp /tmp/reapi/addons/amxmodx/modules/reapi_amxx_i386.so /opt/steam/hlds/cstrike/addons/amxmodx/modules/ && \
+    echo "reapi_amxx_i386.so" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/modules.ini && \
+    echo "fakemeta" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/modules.ini && \
+    echo "hamsandwich" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/modules.ini && \
+    rm -rf /tmp/reapi /tmp/reapi.zip && \
+    wget https://github.com/ReDeathmatch/ReDeathmatch_AMXX/releases/download/1.0.0-b11/ReDeathmatch-1.0.0-b11.zip -O /tmp/redm.zip && \
+    unzip /tmp/redm.zip -d /tmp/redm && \
+    cp -r /tmp/redm/cstrike/addons/amxmodx/* /opt/steam/hlds/cstrike/addons/amxmodx/ && \
+    echo "ReDeathmatch.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini && \
+    echo "redm_spawns.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini && \
+    rm -rf /tmp/redm /tmp/redm.zip && \
+    mkdir -p /opt/steam/hlds/cstrike/maps && \
 
+    wget -q https://raw.githubusercontent.com/AMXX-Plugins/GunGame/master/plugins/gungame.amxx -P /opt/steam/hlds/cstrike/addons/amxmodx/plugins/ 2>/dev/null || true && \
+    if [ -f /opt/steam/hlds/cstrike/addons/amxmodx/plugins/gungame.amxx ]; then echo "gungame.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini; fi && \
     apt-get remove -y wget unzip xz-utils && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Note: For GunGame support, add the GunGame plugin after building:
-# RUN wget https://github.com/AMXX-Plugins/GunGame/raw/master/plugins/gungame.amxx -P /opt/steam/hlds/cstrike/addons/amxmodx/plugins/ && \
-#     echo "gungame.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini

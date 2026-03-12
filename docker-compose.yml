@@ -19,6 +19,8 @@ services:
       - ./servers/tournament/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/tournament/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/tournament/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/tournament/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/tournament/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -53,6 +55,8 @@ services:
       - ./servers/public/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/public/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/public/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/public/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/public/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -87,6 +91,8 @@ services:
       - ./servers/practice/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/practice/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/practice/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/practice/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/practice/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -121,6 +127,8 @@ services:
       - ./servers/gungame/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/gungame/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/gungame/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/gungame/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/gungame/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -155,6 +163,8 @@ services:
       - ./servers/tdm-bots/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/tdm-bots/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/tdm-bots/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/tdm-bots/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/tdm-bots/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -189,6 +199,8 @@ services:
       - ./servers/ffa-bots/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/ffa-bots/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/ffa-bots/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/ffa-bots/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/ffa-bots/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -223,6 +235,8 @@ services:
       - ./servers/surf/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/surf/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/surf/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/surf/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/surf/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:
@@ -257,6 +271,8 @@ services:
       - ./servers/aim/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
       - ./servers/aim/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
       - ./servers/aim/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+      - ./servers/aim/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
+      - ./servers/aim/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
     stdin_open: true
     tty: true
     command:

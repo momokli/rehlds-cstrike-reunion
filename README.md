@@ -421,6 +421,181 @@ Edit the `yapb.cfg` file in the server's cstrike directory for advanced configur
 
 The YaPB plugin is automatically included in the Docker image and requires no additional setup.
 
+## ReDeathmatch Integration
+
+The system includes **ReDeathmatch** for advanced deathmatch gameplay with random spawns and weapon selection:
+
+- **Modern Deathmatch Features**: Random spawns, weapon menus (`/guns`), spawn protection
+- **Pre-configured Spawns**: Includes spawn points for popular maps (de_dust2, de_inferno, de_train)
+- **Bot Compatibility**: Works seamlessly with YaPB bots
+- **ReAPI Required**: Uses ReAPI module for enhanced functionality
+
+### Configuration
+
+ReDeathmatch is configured in server configuration files:
+
+- **FFA Deathmatch Server** (`servers/ffa-bots/server.cfg`): FFA mode with random spawns
+- **Team Deathmatch with Bots** (`servers/tdm-bots/server.cfg`): TDM mode with random spawns
+- **Practice Server** (`servers/practice/server.cfg`): FFA mode for training
+
+Example configuration:
+
+```cfg
+redm_active 1
+redm_mode "ffa"           # or "tdm" for team deathmatch
+redm_randomspawn 1
+redm_spawn_protection_time 2.0
+redm_respawn_delay 0
+redm_weapon_menu 1
+redm_open_equip_menu_by_g 1
+redm_block_drop_weapon 1
+redm_bot_weapons "random"
+```
+
+### Using ReDeathmatch
+
+In-game commands for players:
+
+- `/guns` or press `G` - Open weapon selection menu
+- `/redm editor` - Access spawn editor (admin only)
+- `/modes` - Vote for different game modes
+
+### Spawn Editor
+
+Admins can add custom spawn points:
+
+1. Connect to server with admin privileges
+2. Type `/redm editor` in console
+3. Use menu to add, edit, or remove spawn points
+4. Spawns are saved automatically in `data/redm/` directory
+
+### Random Spawn Configuration
+
+ReDeathmatch provides advanced random spawn systems for FFA servers:
+
+- **Spawn Groups**: Organize spawns into groups (e.g., "sniper spots", "close quarters")
+- **Spawn Presets**: Pre-defined spawn configurations for popular maps
+- **Map-specific Spawns**: Different spawn sets per map
+- **Spawn Weighting**: Control probability of spawning at specific locations
+
+#### Advanced Spawn CVars
+
+```cfg
+// Spawn behavior
+redm_spawn_random 1               // Enable random spawn selection
+redm_spawn_groups 1               // Use spawn groups (if defined)
+redm_spawn_editor_mode 0          // Disable editor mode for gameplay
+
+// Spawn protection
+redm_spawn_protection_time 2.0    // Seconds of spawn protection
+redm_spawn_protection_render 1    // Render protection effect (glow)
+redm_spawn_protection_color "255 255 255" // Protection glow color
+
+// Respawn settings
+redm_respawn_delay 0              // Instant respawn
+redm_respawn_random 1             // Random respawn location
+redm_respawn_immunity 1           // Invulnerability during respawn
+```
+
+#### Creating Spawn Groups
+
+1. Enable spawn editor: `/redm editor`
+2. Select "Create Group" from menu
+3. Name the group (e.g., "CT_Spawn", "Mid_Area")
+4. Add spawn points to the group
+5. Groups are saved in `data/redm/maps/[mapname].groups`
+
+#### Map-specific Configuration
+
+Create `redm_maps.ini` in `cstrike/addons/amxmodx/configs/redm/`:
+
+```ini
+[de_dust2]
+spawn_groups = default,ct_spawn,t_spawn,mid
+spawn_preset = dust2_competitive
+
+[de_inferno]
+spawn_groups = apartments,balcony,arch,mid
+spawn_preset = inferno_balanced
+```
+
+#### Testing Spawn System
+
+1. Connect to FFA server with bots
+2. Use `/redm testspawn` to test spawn locations
+3. Monitor spawn distribution with `/redm spawnstats`
+4. Adjust spawn weights in editor for balanced gameplay
+
+The ReDeathmatch plugin is automatically included in the Docker image alongside ReAPI module.
+
+## FFA Server Best Practices with ReDeathmatch and Bots
+
+### Optimal Configuration for LAN Parties
+
+For smooth FFA deathmatch gameplay with bots, use these recommended settings:
+
+```cfg
+// ReDeathmatch settings for FFA with bots
+redm_active 1
+redm_mode "ffa"
+redm_randomspawn 1
+redm_spawn_protection_time 2.0
+redm_respawn_delay 0
+redm_weapon_menu 1
+redm_open_equip_menu_by_g 1
+redm_block_drop_weapon 1
+redm_bot_weapons "random"
+
+// YaPB bot settings for FFA
+yb_quota 14                    // 16 total slots - 2 for human players
+yb_quota_mode fill
+yb_join_after_player 0
+yb_difficulty 1                // Normal difficulty for casual play
+yb_chatter on                  // Enable bot radio chatter
+yb_pickup_weapons 1            // Bots can pickup weapons
+```
+
+### Spawn Management
+
+1. **Balanced Spawn Distribution**: Use `/redm editor` to create spawn groups for different map areas
+2. **Avoid Spawn Camping**: Place spawns away from high-traffic choke points
+3. **Map Coverage**: Ensure spawns cover all major areas of each map
+4. **Testing**: Use `/redm testspawn` to verify spawn locations and distribution
+
+### Bot Integration
+
+- **Bot Weapons**: Set `redm_bot_weapons "random"` for varied bot loadouts
+- **Bot Difficulty**: Adjust `yb_difficulty` based on player skill (0=easy, 4=nightmare)
+- **Bot Quota**: Set `yb_quota` to fill empty slots while leaving room for human players
+- **Bot Behavior**: Enable `yb_pickup_weapons 1` so bots can use weapons from the ground
+
+### Weapon Menu Optimization
+
+- **Default Key**: Players can press `G` to open weapon selection menu
+- **Weapon Balance**: Consider restricting overpowered weapons in competitive settings
+- **Quick Selection**: Teach players to use `/guns` command for quick weapon changes
+
+### Performance Tips
+
+1. **Server Load**: With 16 players and bots, monitor server CPU usage
+2. **Map Rotation**: Use smaller maps for better FFA gameplay (de_dust2, de_inferno, cs_office)
+3. **Respawn Rate**: Instant respawn (`redm_respawn_delay 0`) keeps action continuous
+4. **Spawn Protection**: 2-second protection prevents immediate spawn kills
+
+### Player Experience
+
+- **Clear Rules**: Announce server rules at map change
+- **Weapon Selection**: Encourage players to try different weapons via `/guns`
+- **Bot Difficulty**: Start with normal difficulty (`yb_difficulty 1`) and adjust based on feedback
+- **Admin Tools**: Use `/redm editor` to fine-tune spawns during gameplay
+
+### Troubleshooting
+
+- **Bots Not Spawning**: Check `yb_quota` and `yb_quota_mode` settings
+- **No Random Spawns**: Verify `redm_randomspawn 1` is enabled
+- **Weapon Menu Not Working**: Ensure `redm_weapon_menu 1` and `redm_open_equip_menu_by_g 1`
+- **Spawn Protection Issues**: Adjust `redm_spawn_protection_time` if spawn kills are frequent
+
 ## Support
 
 For tournament and server issues:

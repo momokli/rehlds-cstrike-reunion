@@ -3,6 +3,8 @@
 logs/
 data/
 volumes/
+docker-assets/*
+!docker-assets/**/.keep
 
 # Environment
 .env
