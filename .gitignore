@@ -3,8 +3,7 @@
 logs/
 data/
 volumes/
-docker-assets/*
-!docker-assets/**/.keep
+
 
 # Environment
 .env
@@ -87,9 +86,13 @@ lerna-debug.log*
 !gg_213c_full.zip
 *.bz2
 *.gz
+download-assets.legacy.sh
 
 # Game server specific
 *.bsp
+!docker-assets/maps/*.bsp
+*.amxx
+!docker-assets/plugins/*.amxx
 *.nav
 *.res
 *.txt (except config ones, but we'll be specific)

@@ -1,10 +1,4 @@
-de_dust2
-de_inferno
-cs_office
-de_train
-de_nuke
-de_cbble
-cs_italy
-de_aztec
-cs_militia
-de_dust
+de_shortdust
+de_shortdust2
+de_shortinferno
+de_shorttrain

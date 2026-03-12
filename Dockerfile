@@ -2,7 +2,7 @@ FROM ghcr.io/blsalin/rehlds-cstrike:latest
 
 USER root
 
-# Copy downloaded assets from build context
+# Copy repository assets from build context
 COPY docker-assets/maps/ /opt/steam/hlds/cstrike/maps/
 COPY docker-assets/plugins/ /opt/steam/hlds/cstrike/addons/amxmodx/plugins/
 COPY gg_213c_full.zip /tmp/gg_213c_full.zip

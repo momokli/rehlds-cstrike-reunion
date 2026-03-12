@@ -348,15 +348,25 @@ servers/
    docker compose restart
    ```
 
-### Adding Custom Maps
+### Adding Custom Maps & Assets
 
-1. Place `.bsp` files in a directory on your server
-2. Mount the directory to the containers (modify `docker-compose.yml`):
-   ```yaml
-   volumes:
-     - ./custom_maps:/opt/steam/hlds/cstrike/maps:ro
-   ```
-3. Add map names to the appropriate `mapcycle.txt`
+All server assets are now stored directly in the repository for reliable builds:
+
+1. **Custom Maps**: Place `.bsp` files in `docker-assets/maps/`
+   - Example: `cp ~/Downloads/surf_water-run_2.bsp docker-assets/maps/`
+2. **AMX Mod X Plugins**: Place `.amxx` files in `docker-assets/plugins/`
+   - Example: `cp ~/Downloads/custom_plugin.amxx docker-assets/plugins/`
+3. **Complete Mods**: Place mod zip files in the repository root
+   - Example: `gg_213c_full.zip` (GunGame mod, installed automatically)
+
+4. Update the appropriate server's `mapcycle.txt` file if adding new maps
+   - Each server has its own mapcycle in `servers/[server-type]/mapcycle.txt`
+
+5. Validate assets: `./check-assets.sh --verbose`
+
+6. Rebuild the Docker image: `docker compose build --no-cache`
+
+**Note**: The Dockerfile automatically copies all assets from `docker-assets/` into the image during build.
 
 ## Troubleshooting
 

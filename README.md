@@ -204,19 +204,29 @@ servers/
     └── motd.txt        # Aim MOTD
 ```
 
-### Map Downloads
+### Asset Management
 
-Some servers use custom maps that need to be downloaded separately:
+All server assets (maps, plugins, mods) are now stored directly in the repository for reliable builds:
 
-1. **Surf Server** (`surf_water-run_2`):
-   - Download: `https://share.monocu.be/cs1.6-maps/surf/surf_water-run_2/`
-   - Place in your CS 1.6 `maps/` folder
+1. **Custom Maps**: Place `.bsp` files in `docker-assets/maps/`
+   - Example: `aim_b0n0_d8c71.bsp` for the aim server
+   - Example: `surf_water-run_2.bsp` for the surf server
 
-2. **Aim Server** (`aim_b0n0_d8c71`):
-   - Download: `https://share.monocu.be/cs1.6-maps/aim_b0n0_d8c71.rar`
-   - Extract and place `.bsp` file in your CS 1.6 `maps/` folder
+2. **AMX Mod X Plugins**: Place `.amxx` files in `docker-assets/plugins/`
 
-**Note**: The servers will fall back to `de_dust2` if custom maps are not available on the server. Players can still connect and play.
+3. **Complete Mods**: Place mod zip files in the repository root
+   - Example: `gg_213c_full.zip` for GunGame (automatically installed by Dockerfile)
+
+**Directory Structure**:
+
+```
+docker-assets/
+├── maps/              # Custom map files (.bsp)
+├── plugins/           # AMX Mod X plugins (.amxx)
+└── README.md          # Asset management guide
+```
+
+**Note**: The servers will fall back to `de_dust2` if custom maps referenced in mapcycles are not available. Use `./check-assets.sh` to validate your assets.
 
 ### Customizing Configuration
 
@@ -227,15 +237,25 @@ Some servers use custom maps that need to be downloaded separately:
    docker compose restart gungame-server
    ```
 
-### Adding Custom Maps
+### Adding Custom Maps & Assets
 
-1. Place `.bsp` files in a directory on your host
-2. Mount the directory to the container (modify `docker-compose.yml`):
-   ```yaml
-   volumes:
-     - ./custom_maps:/opt/steam/hlds/cstrike/maps:ro
-   ```
-3. Add map names to the appropriate `mapcycle.txt`
+To add custom maps or plugins to the server infrastructure:
+
+1. **Custom Maps**: Place `.bsp` files in `docker-assets/maps/`
+   - Example: `cp ~/Downloads/surf_water-run_2.bsp docker-assets/maps/`
+2. **AMX Mod X Plugins**: Place `.amxx` files in `docker-assets/plugins/`
+   - Example: `cp ~/Downloads/custom_plugin.amxx docker-assets/plugins/`
+3. **Complete Mods**: Place mod zip files in the repository root
+   - Example: `gg_213c_full.zip` (GunGame mod, installed automatically)
+
+4. Update the appropriate server's `mapcycle.txt` file if adding new maps
+   - Each server has its own mapcycle in `servers/[server-type]/mapcycle.txt`
+
+5. Validate assets: `./check-assets.sh --verbose`
+
+6. Rebuild the Docker image: `docker compose build --no-cache`
+
+**Note**: The Dockerfile automatically copies all assets from `docker-assets/` into the image during build.
 
 ## Docker Compose Structure
 
