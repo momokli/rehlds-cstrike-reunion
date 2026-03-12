@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.system {
+    color: #FFFF00;
+}
+.info {
+    color: #00FF00;
+}
+.warning {
+    color: #FF9900;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+.bot {
+    color: #FF66FF;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                        ZUKKA TEAM DEATHMATCH WITH BOTS                         │</span><br>
+<span class="header">│                   CS 1.6 TEAM DEATHMATCH - CASUAL PLAY + BOTS                  │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="system">[SERVER]</span> <span class="info">zukka CS 1.6 Team Deathmatch WITH BOTS - Casual Play</span><br>
+<span class="system">[MODE]</span> <span class="highlight">Team Deathmatch (CT vs T)</span> | <span class="bot">BOTS ENABLED</span><br>
+<span class="system">[SLOTS]</span> <span class="info">16 players max (bots fill empty slots)</span><br>
+<br>
+<span class="header">═══════════════════════════════════ BOT SYSTEM ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[BOTS]</span> <span class="bot">AI Bots automatically join when server is empty</span><br>
+<span class="system">[BOTS]</span> <span class="bot">Bots automatically leave when real players join</span><br>
+<span class="system">[BOTS]</span> <span class="info">Difficulty: Normal | Max bots: 10 | Bot prefix: [BOT]</span><br>
+<span class="system">[BOTS]</span> <span class="info">Bots use all weapons | Team balance maintained</span><br>
+<br>
+<span class="header">══════════════════════════════════ GAME SETTINGS ════════════════════════════════</span><br>
+<br>
+<span class="system">[SETTINGS]</span> <span class="info">Classic Team Deathmatch (CT vs T)</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Friendly Fire: OFF | All Talk: ON</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Round time: 2.5 min | Freeze time: 5s | Buy time: 30s</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Start money: $800 | C4 available</span><br>
+<br>
+<span class="header">══════════════════════════════════ CONNECTION INFO ═══════════════════════════════</span><br>
+<br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:[PORT]</span><br>
+<span class="system">[PASSWORD]</span> <span class="info">No password required</span><br>
+<span class="system">[BOTS]</span> <span class="info">Bots auto-adjust based on player count</span><br>
+<br>
+<span class="header">═══════════════════════════════════ MAP ROTATION ════════════════════════════════</span><br>
+<br>
+<span class="system">[MAPS]</span> <span class="info">de_dust2, de_inferno, de_nuke, de_train, de_dust</span><br>
+<span class="system">[MAPS]</span> <span class="info">cs_office, cs_italy, de_aztec, de_cbble, de_piranesi</span><br>
+<span class="system">[MAPS]</span> <span class="info">cs_militia, de_vertigo, de_airstrip, cs_assault, de_storm</span><br>
+<span class="system">[MAPS]</span> <span class="info">cs_747, cs_havana, de_chateau, de_prodigy</span><br>
+<br>
+<span class="header">══════════════════════════════════ SERVER INFO ══════════════════════════════════</span><br>
+<br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS | ReGameDLL | AMX Mod X</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span><br>
+<span class="system">[REGION]</span> <span class="info">Europe (3)</span><br>
+<br>
+<span class="header">══════════════════════════════════ BOT COMMANDS ═════════════════════════════════</span><br>
+<br>
+<span class="system">[RCON]</span> <span class="command">bot_add</span> <span class="info">- Add a bot</span><br>
+<span class="system">[RCON]</span> <span class="command">bot_kick</span> <span class="info">- Remove all bots</span><br>
+<span class="system">[RCON]</span> <span class="command">bot_add_ct</span> <span class="info">- Add bot to CT team</span><br>
+<span class="system">[RCON]</span> <span class="command">bot_add_t</span> <span class="info">- Add bot to T team</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                     PERFECT FOR CASUAL PLAY WITH FRIENDS!                     │</span><br>
+<span class="header">│                BOTS KEEP THE ACTION GOING WHEN PLAYERS ARE LOW                │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>

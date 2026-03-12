@@ -1,0 +1,15 @@
+aim_b0n0_d8c71
+aim_ak-colt
+aim_deagle
+aim_map
+aim_usp
+aim_shotty
+aim_awp
+aim_pistol
+aim_knife
+aim_texture
+aim_ag_texture2
+aim_headshot
+aim_fy_pool_day
+aim_fy_snow
+aim_fy_iceworld

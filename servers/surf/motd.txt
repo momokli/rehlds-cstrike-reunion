@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.system {
+    color: #FFFF00;
+}
+.info {
+    color: #00FF00;
+}
+.warning {
+    color: #FF9900;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+.surf {
+    color: #00CCFF;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                             ZUKKA SURF SERVER                                │</span><br>
+<span class="header">│                     CS 1.6 SURF - MOVEMENT & SKILL GAMEPLAY                    │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="system">[SERVER]</span> <span class="info">zukka CS 1.6 Surf Server - Movement & Skill</span><br>
+<span class="system">[MODE]</span> <span class="surf">Surf (Movement-based Gameplay)</span> | <span class="info">Instant Respawn</span><br>
+<span class="system">[SLOTS]</span> <span class="info">16 players max</span><br>
+<span class="system">[DEFAULT MAP]</span> <span class="highlight">surf_water-run_2</span><br>
+<br>
+<span class="header">═══════════════════════════════════ SURF BASICS ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[WHAT IS SURF?]</span> <span class="info">Use mouse movement to slide down ramps and gain speed</span><br>
+<span class="system">[PHYSICS]</span> <span class="info">Lower gravity (400) | High air acceleration (100)</span><br>
+<span class="system">[GOAL]</span> <span class="info">Complete the course as fast as possible | Race against others</span><br>
+<span class="system">[WEAPONS]</span> <span class="info">Free weapons on spawn | No money system</span><br>
+<br>
+<span class="header">══════════════════════════════════ CONNECTION INFO ═══════════════════════════════</span><br>
+<br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:[PORT]</span><br>
+<span class="system">[PASSWORD]</span> <span class="info">No password required</span><br>
+<span class="system">[DEFAULT]</span> <span class="info">Joins directly to surf_water-run_2</span><br>
+<br>
+<span class="header">═══════════════════════════════════ MAP ROTATION ════════════════════════════════</span><br>
+<br>
+<span class="system">[SURF MAPS]</span> <span class="surf">surf_water-run_2</span> <span class="info">(default)</span><br>
+<span class="system">[SURF MAPS]</span> <span class="info">surf_utopia, surf_ski_2, surf_greatriver, surf_akai</span><br>
+<span class="system">[SURF MAPS]</span> <span class="info">surf_skyworld, surf_kitsune, surf_legends, surf_mesa</span><br>
+<span class="system">[SURF MAPS]</span> <span class="info">surf_beginner</span><br>
+<br>
+<span class="header">══════════════════════════════════ PHYSICS SETTINGS ═══════════════════════════════</span><br>
+<br>
+<span class="system">[GRAVITY]</span> <span class="info">400 (half of default 800) - easier jumps</span><br>
+<span class="system">[AIR CONTROL]</span> <span class="info">100 air acceleration - precise surfing</span><br>
+<span class="system">[SPEED]</span> <span class="info">Max speed: 320 | Instant respawn</span><br>
+<span class="system">[FRICTION]</span> <span class="info">Reduced for smoother sliding</span><br>
+<br>
+<span class="header">══════════════════════════════════ SERVER INFO ══════════════════════════════════</span><br>
+<br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS | ReGameDLL | AMX Mod X</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span><br>
+<span class="system">[REGION]</span> <span class="info">Europe (3)</span><br>
+<br>
+<span class="header">══════════════════════════════════ SURF TIPS ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[TIP 1]</span> <span class="info">Look slightly sideways on ramps to gain speed</span><br>
+<span class="system">[TIP 2]</span> <span class="info">Use A/D keys to steer while in air</span><br>
+<span class="system">[TIP 3]</span> <span class="info">Practice makes perfect - surf requires skill!</span><br>
+<span class="system">[TIP 4]</span> <span class="info">Watch other players to learn techniques</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                        MASTER THE RAMPS - RACE TO THE TOP!                     │</span><br>
+<span class="header">│                   SURF REQUIRES SKILL, TIMING, AND PRACTICE                    │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>

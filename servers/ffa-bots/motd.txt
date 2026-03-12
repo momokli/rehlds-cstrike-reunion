@@ -1,0 +1,96 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.system {
+    color: #FFFF00;
+}
+.info {
+    color: #00FF00;
+}
+.warning {
+    color: #FF9900;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+.bot {
+    color: #FF66FF;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                         ZUKKA FFA DEATHMATCH WITH BOTS                         │</span><br>
+<span class="header">│                   CS 1.6 FFA DEATHMATCH - INSTANT RESPAWN + BOTS                │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="system">[SERVER]</span> <span class="info">zukka CS 1.6 FFA Deathmatch WITH BOTS - Instant Respawn</span><br>
+<span class="system">[MODE]</span> <span class="highlight">Free-for-All Deathmatch</span> | <span class="bot">BOTS ENABLED</span><br>
+<span class="system">[SLOTS]</span> <span class="info">16 players max (bots fill empty slots)</span><br>
+<br>
+<span class="header">═══════════════════════════════════ BOT SYSTEM ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[BOTS]</span> <span class="bot">AI Bots automatically join when server is empty</span><br>
+<span class="system">[BOTS]</span> <span class="bot">Bots automatically leave when real players join</span><br>
+<span class="system">[BOTS]</span> <span class="info">Difficulty: Normal | Max bots: 12 | Bot prefix: [BOT]</span><br>
+<span class="system">[BOTS]</span> <span class="info">Free-for-all mode: Everyone vs Everyone (including bots)</span><br>
+<br>
+<span class="header">══════════════════════════════════ GAME SETTINGS ════════════════════════════════</span><br>
+<br>
+<span class="system">[SETTINGS]</span> <span class="info">Free-for-All Deathmatch (Everyone vs Everyone)</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Instant Respawn: ON | All Talk: ON</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">No money system | Weapons provided on spawn</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">No freeze time | Unlimited play time</span><br>
+<br>
+<span class="header">══════════════════════════════════ CONNECTION INFO ═══════════════════════════════</span><br>
+<br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:[PORT]</span><br>
+<span class="system">[PASSWORD]</span> <span class="info">No password required</span><br>
+<span class="system">[BOTS]</span> <span class="info">Bots auto-adjust based on player count</span><br>
+<br>
+<span class="header">═══════════════════════════════════ MAP ROTATION ════════════════════════════════</span><br>
+<br>
+<span class="system">[MAPS]</span> <span class="info">de_dust2, de_inferno, de_nuke, de_train, de_aztec</span><br>
+<span class="system">[MAPS]</span> <span class="info">cs_office, cs_italy, de_dust, de_cbble, cs_militia</span><br>
+<span class="system">[MAPS]</span> <span class="info">de_prodigy, de_vertigo</span><br>
+<br>
+<span class="header">══════════════════════════════════ SERVER INFO ══════════════════════════════════</span><br>
+<br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS | ReGameDLL | AMX Mod X</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span><br>
+<span class="system">[REGION]</span> <span class="info">Europe (3)</span><br>
+<br>
+<span class="header">══════════════════════════════════ BOT COMMANDS ═════════════════════════════════</span><br>
+<br>
+<span class="system">[RCON]</span> <span class="command">bot_add</span> <span class="info">- Add a bot to the game</span><br>
+<span class="system">[RCON]</span> <span class="command">bot_kick</span> <span class="info">- Remove all bots</span><br>
+<span class="system">[RCON]</span> <span class="command">bot_kill</span> <span class="info">- Kill all bots</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                    PERFECT FOR AIM PRACTICE & CASUAL FUN!                     │</span><br>
+<span class="header">│               BOTS PROVIDE TARGETS 24/7 - INSTANT ACTION GUARANTEED           │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>

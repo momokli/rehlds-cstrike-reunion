@@ -24,9 +24,9 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Server definitions
-SERVERS=("tournament" "public" "practice" "gungame")
-SERVER_PORTS=("${TOURNAMENT_PORT:-27015}" "${PUBLIC_PORT:-27016}" "${PRACTICE_PORT:-27017}" "${GUNGAME_PORT:-27018}")
-SERVER_NAMES=("zukka Tournament Server" "zukka Team Deathmatch" "zukka FFA Deathmatch" "zukka GunGame")
+SERVERS=("tournament" "public" "practice" "gungame" "tdm-bots" "ffa-bots" "surf" "aim")
+SERVER_PORTS=("${TOURNAMENT_PORT:-27015}" "${PUBLIC_PORT:-27016}" "${PRACTICE_PORT:-27017}" "${GUNGAME_PORT:-27018}" "${TDM_BOTS_PORT:-27019}" "${FFA_BOTS_PORT:-27020}" "${SURF_PORT:-27021}" "${AIM_PORT:-27022}")
+SERVER_NAMES=("zukka Tournament Server" "zukka Team Deathmatch" "zukka FFA Deathmatch" "zukka GunGame" "zukka TDM with Bots" "zukka FFA with Bots" "zukka Surf Server" "zukka Aim Server")
 
 # Helper functions
 print_header() {
@@ -410,6 +410,10 @@ show_help() {
     echo "public                  Team Deathmatch Server (port 27016)"
     echo "practice                FFA Deathmatch Server (port 27017)"
     echo "gungame                 GunGame Server (port 27018)"
+    echo "tdm-bots                Team Deathmatch with Bots Server (port 27019)"
+    echo "ffa-bots                FFA Deathmatch with Bots Server (port 27020)"
+    echo "surf                    Surf Server (port 27021)"
+    echo "aim                     Aim Server (port 27022)"
     echo ""
     echo "  ${YELLOW}Examples:${NC}"
     echo "    ./manage.sh start all"
@@ -423,6 +427,10 @@ show_help() {
     echo "  Public:     ${PUBLIC_PORT:-27016}"
     echo "  Practice:   ${PRACTICE_PORT:-27017}"
     echo "  GunGame:    ${GUNGAME_PORT:-27018}"
+    echo "  TDM Bots:   ${TDM_BOTS_PORT:-27019}"
+    echo "  FFA Bots:   ${FFA_BOTS_PORT:-27020}"
+    echo "  Surf:       ${SURF_PORT:-27021}"
+    echo "  Aim:        ${AIM_PORT:-27022}"
 }
 
 # Main script logic

@@ -37,6 +37,30 @@ DEFAULT_SERVERS = {
         "password": "zukka_gungame_rcon_secure",
         "description": "zukka GunGame Server (Weapon Progression)",
     },
+    "tdm-bots": {
+        "host": "localhost",
+        "port": 27019,
+        "password": "zukka_public_bots_rcon_secure",
+        "description": "zukka Team Deathmatch Server with Bots",
+    },
+    "ffa-bots": {
+        "host": "localhost",
+        "port": 27020,
+        "password": "zukka_ffa_bots_rcon_secure",
+        "description": "zukka FFA Deathmatch Server with Bots",
+    },
+    "surf": {
+        "host": "localhost",
+        "port": 27021,
+        "password": "zukka_surf_rcon_secure",
+        "description": "zukka Surf Server (Movement & Skill)",
+    },
+    "aim": {
+        "host": "localhost",
+        "port": 27022,
+        "password": "zukka_aim_rcon_secure",
+        "description": "zukka Aim Server (Fast-Paced Aim Training)",
+    },
 }
 
 
@@ -356,6 +380,10 @@ Default server configurations:
   public:     localhost:27016 (password: zukka_public_rcon_secure)
   practice:   localhost:27017 (password: zukka_practice_rcon_secure)
   gungame:    localhost:27018 (password: zukka_gungame_rcon_secure)
+  tdm-bots:   localhost:27019 (password: zukka_public_bots_rcon_secure)
+  ffa-bots:   localhost:27020 (password: zukka_ffa_bots_rcon_secure)
+  surf:       localhost:27021 (password: zukka_surf_rcon_secure)
+  aim:        localhost:27022 (password: zukka_aim_rcon_secure)
         """,
     )
 
@@ -363,7 +391,16 @@ Default server configurations:
     parser.add_argument(
         "server",
         nargs="?",
-        choices=["tournament", "public", "practice", "gungame"],
+        choices=[
+            "tournament",
+            "public",
+            "practice",
+            "gungame",
+            "tdm-bots",
+            "ffa-bots",
+            "surf",
+            "aim",
+        ],
         help="Server to connect to (uses default configuration)",
     )
 

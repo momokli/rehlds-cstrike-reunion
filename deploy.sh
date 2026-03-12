@@ -65,8 +65,12 @@ check_ports() {
     PUBLIC_PORT=${PUBLIC_PORT:-27016}
     PRACTICE_PORT=${PRACTICE_PORT:-27017}
     GUNGAME_PORT=${GUNGAME_PORT:-27018}
+    TDM_BOTS_PORT=${TDM_BOTS_PORT:-27019}
+    FFA_BOTS_PORT=${FFA_BOTS_PORT:-27020}
+    SURF_PORT=${SURF_PORT:-27021}
+    AIM_PORT=${AIM_PORT:-27022}
 
-    local ports=("$TOURNAMENT_PORT" "$PUBLIC_PORT" "$PRACTICE_PORT" "$GUNGAME_PORT")
+    local ports=("$TOURNAMENT_PORT" "$PUBLIC_PORT" "$PRACTICE_PORT" "$GUNGAME_PORT" "$TDM_BOTS_PORT" "$FFA_BOTS_PORT" "$SURF_PORT" "$AIM_PORT")
     local in_use=()
 
     for port in "${ports[@]}"; do
@@ -134,6 +138,10 @@ show_status() {
     echo "  Public:     ${PUBLIC_PORT:-27016}"
     echo "  Practice:   ${PRACTICE_PORT:-27017}"
     echo "  GunGame:    ${GUNGAME_PORT:-27018}"
+    echo "  TDM Bots:   ${TDM_BOTS_PORT:-27019}"
+    echo "  FFA Bots:   ${FFA_BOTS_PORT:-27020}"
+    echo "  Surf:       ${SURF_PORT:-27021}"
+    echo "  Aim:        ${AIM_PORT:-27022}"
 
     echo ""
     log "To view logs: docker compose logs [server-name]"

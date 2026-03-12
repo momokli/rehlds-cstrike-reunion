@@ -139,3 +139,139 @@ services:
         "+maxplayers",
         "16",
       ]
+
+  tdm-bots-server:
+    build: .
+    container_name: cs16-tdm-bots
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "${TDM_BOTS_PORT:-27019}:27015"
+      - "${TDM_BOTS_PORT:-27019}:27015/udp"
+    volumes:
+      - ./servers/tdm-bots/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/tdm-bots/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/tdm-bots/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
+    tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "${TDM_BOTS_HOSTNAME:-zukka CS 1.6 Team Deathmatch WITH BOTS - Casual Play}",
+        "+map",
+        "de_dust2",
+        "+maxplayers",
+        "16",
+      ]
+
+  ffa-bots-server:
+    build: .
+    container_name: cs16-ffa-bots
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "${FFA_BOTS_PORT:-27020}:27015"
+      - "${FFA_BOTS_PORT:-27020}:27015/udp"
+    volumes:
+      - ./servers/ffa-bots/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/ffa-bots/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/ffa-bots/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
+    tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "${FFA_BOTS_HOSTNAME:-zukka CS 1.6 FFA Deathmatch WITH BOTS - Instant Respawn}",
+        "+map",
+        "de_dust2",
+        "+maxplayers",
+        "16",
+      ]
+
+  surf-server:
+    build: .
+    container_name: cs16-surf
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "${SURF_PORT:-27021}:27015"
+      - "${SURF_PORT:-27021}:27015/udp"
+    volumes:
+      - ./servers/surf/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/surf/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/surf/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
+    tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "${SURF_HOSTNAME:-zukka CS 1.6 Surf Server - Movement & Skill}",
+        "+map",
+        "surf_water-run_2",
+        "+maxplayers",
+        "16",
+      ]
+
+  aim-server:
+    build: .
+    container_name: cs16-aim
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - GLIBC_TUNABLES=glibc.rtld.execstack=2
+    ports:
+      - "${AIM_PORT:-27022}:27015"
+      - "${AIM_PORT:-27022}:27015/udp"
+    volumes:
+      - ./servers/aim/server.cfg:/opt/steam/hlds/cstrike/config/server.cfg:ro
+      - ./servers/aim/motd.txt:/opt/steam/hlds/cstrike/motd.txt:ro
+      - ./servers/aim/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
+    stdin_open: true
+    tty: true
+    command:
+      [
+        "./hlds_run",
+        "-timeout",
+        "3",
+        "-pingboost",
+        "1",
+        "-game",
+        "cstrike",
+        "+hostname",
+        "${AIM_HOSTNAME:-zukka CS 1.6 Aim Server - Fast-Paced Aim Training}",
+        "+map",
+        "aim_b0n0_d8c71",
+        "+maxplayers",
+        "16",
+      ]

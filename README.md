@@ -66,12 +66,16 @@ docker compose down
 
 ## Server Details
 
-| Server     | Port  | Max Players | Description                     | RCON Password                  |
-| ---------- | ----- | ----------- | ------------------------------- | ------------------------------ |
-| Tournament | 27015 | 12          | 5v5 competitive on empty maps   | `zukka_tournament_rcon_secure` |
-| Public     | 27016 | 16          | Team Deathmatch, casual play    | `zukka_public_rcon_secure`     |
-| Practice   | 27017 | 16          | FFA Deathmatch, instant respawn | `zukka_practice_rcon_secure`   |
-| GunGame    | 27018 | 16          | Weapon progression mode         | `zukka_gungame_rcon_secure`    |
+| Server     | Port  | Max Players | Description                     | RCON Password                   |
+| ---------- | ----- | ----------- | ------------------------------- | ------------------------------- |
+| Tournament | 27015 | 12          | 5v5 competitive on empty maps   | `zukka_tournament_rcon_secure`  |
+| Public     | 27016 | 16          | Team Deathmatch, casual play    | `zukka_public_rcon_secure`      |
+| Practice   | 27017 | 16          | FFA Deathmatch, instant respawn | `zukka_practice_rcon_secure`    |
+| GunGame    | 27018 | 16          | Weapon progression mode         | `zukka_gungame_rcon_secure`     |
+| TDM Bots   | 27019 | 16          | Team Deathmatch with AI bots    | `zukka_public_bots_rcon_secure` |
+| FFA Bots   | 27020 | 16          | FFA Deathmatch with AI bots     | `zukka_ffa_bots_rcon_secure`    |
+| Surf       | 27021 | 16          | Movement-based surf gameplay    | `zukka_surf_rcon_secure`        |
+| Aim        | 27022 | 16          | Fast-paced aim training maps    | `zukka_aim_rcon_secure`         |
 
 ### Tournament Server (CS 2v2 Competitive)
 
@@ -143,6 +147,18 @@ connect [SERVER_IP]:27017
 
 # GunGame
 connect [SERVER_IP]:27018
+
+# Team Deathmatch with Bots
+connect [SERVER_IP]:27019
+
+# FFA Deathmatch with Bots
+connect [SERVER_IP]:27020
+
+# Surf
+connect [SERVER_IP]:27021
+
+# Aim
+connect [SERVER_IP]:27022
 ```
 
 ## Configuration
@@ -158,13 +174,33 @@ servers/
 │   ├── mapcycle.txt    # Tournament map rotation
 │   └── motd.txt        # Tournament MOTD with console-style design
 ├── public/
-│   ├── server.cfg      # Public server configuration
-│   ├── mapcycle.txt    # Public map rotation
-│   └── motd.txt        # Public MOTD with console-style design
-└── practice/
-    ├── server.cfg      # Practice server configuration
-    ├── mapcycle.txt    # Practice map rotation
-    └── motd.txt        # Practice MOTD with console-style design
+│   ├── server.cfg      # Team Deathmatch server configuration
+│   ├── mapcycle.txt    # Team Deathmatch map rotation
+│   └── motd.txt        # Team Deathmatch MOTD
+├── practice/
+│   ├── server.cfg      # FFA Deathmatch server configuration
+│   ├── mapcycle.txt    # FFA Deathmatch map rotation
+│   └── motd.txt        # FFA Deathmatch MOTD
+├── gungame/
+│   ├── server.cfg      # GunGame server configuration
+│   ├── mapcycle.txt    # GunGame map rotation
+│   └── motd.txt        # GunGame MOTD
+├── tdm-bots/
+│   ├── server.cfg      # TDM with Bots server configuration
+│   ├── mapcycle.txt    # TDM with Bots map rotation
+│   └── motd.txt        # TDM with Bots MOTD
+├── ffa-bots/
+│   ├── server.cfg      # FFA with Bots server configuration
+│   ├── mapcycle.txt    # FFA with Bots map rotation
+│   └── motd.txt        # FFA with Bots MOTD
+├── surf/
+│   ├── server.cfg      # Surf server configuration
+│   ├── mapcycle.txt    # Surf map rotation
+│   └── motd.txt        # Surf MOTD
+└── aim/
+    ├── server.cfg      # Aim server configuration
+    ├── mapcycle.txt    # Aim map rotation
+    └── motd.txt        # Aim MOTD
 ```
 
 ### Customizing Configuration

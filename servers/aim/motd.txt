@@ -1,0 +1,101 @@
+<HTML>
+<HEAD>
+<STYLE>
+body {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 10px;
+    padding: 0;
+}
+.console {
+    white-space: pre;
+    font-size: 12px;
+    line-height: 1.2;
+}
+.header {
+    color: #00FFFF;
+    font-weight: bold;
+}
+.system {
+    color: #FFFF00;
+}
+.info {
+    color: #00FF00;
+}
+.warning {
+    color: #FF9900;
+}
+.highlight {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.command {
+    color: #00FFFF;
+}
+.aim {
+    color: #FF66FF;
+}
+</STYLE>
+</HEAD>
+<BODY>
+<div class="console">
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                               ZUKKA AIM SERVER                                │</span><br>
+<span class="header">│                     CS 1.6 AIM - FAST-PACED AIM TRAINING                        │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<br>
+<span class="system">[SERVER]</span> <span class="info">zukka CS 1.6 Aim Server - Fast-Paced Aim Training</span><br>
+<span class="system">[MODE]</span> <span class="aim">Aim Training (Free-for-All)</span> | <span class="info">Instant Respawn</span><br>
+<span class="system">[SLOTS]</span> <span class="info">16 players max</span><br>
+<span class="system">[DEFAULT MAP]</span> <span class="highlight">aim_b0n0_d8c71</span><br>
+<br>
+<span class="header">═══════════════════════════════════ AIM BASICS ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[WHAT IS AIM?]</span> <span class="info">Fast-paced aim training on small symmetrical maps</span><br>
+<span class="system">[GAMEPLAY]</span> <span class="info">Free-for-all | Instant respawn | No objectives</span><br>
+<span class="system">[GOAL]</span> <span class="info">Improve reflexes, accuracy, and headshot skills</span><br>
+<span class="system">[WEAPONS]</span> <span class="info">Free weapons on spawn | No money system</span><br>
+<br>
+<span class="header">══════════════════════════════════ CONNECTION INFO ═══════════════════════════════</span><br>
+<br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:[PORT]</span><br>
+<span class="system">[PASSWORD]</span> <span class="info">No password required</span><br>
+<span class="system">[DEFAULT]</span> <span class="info">Joins directly to aim_b0n0_d8c71</span><br>
+<br>
+<span class="header">═══════════════════════════════════ MAP ROTATION ════════════════════════════════</span><br>
+<br>
+<span class="system">[AIM MAPS]</span> <span class="aim">aim_b0n0_d8c71</span> <span class="info">(default)</span><br>
+<span class="system">[AIM MAPS]</span> <span class="info">aim_ak-colt, aim_deagle, aim_map, aim_usp</span><br>
+<span class="system">[AIM MAPS]</span> <span class="info">aim_shotty, aim_awp, aim_pistol, aim_knife</span><br>
+<span class="system">[AIM MAPS]</span> <span class="info">aim_texture, aim_ag_texture2, aim_headshot</span><br>
+<span class="system">[AIM MAPS]</span> <span class="info">aim_fy_pool_day, aim_fy_snow, aim_fy_iceworld</span><br>
+<br>
+<span class="header">══════════════════════════════════ GAME SETTINGS ════════════════════════════════</span><br>
+<br>
+<span class="system">[SETTINGS]</span> <span class="info">Free-for-All Deathmatch</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Instant Respawn: ON | All Talk: ON</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">No freeze time | 5-minute rounds</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">No money | Weapons provided on spawn</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Friendly Fire: OFF | Flashlights: OFF</span><br>
+<br>
+<span class="header">══════════════════════════════════ SERVER INFO ══════════════════════════════════</span><br>
+<br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS | ReGameDLL | AMX Mod X</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span><br>
+<span class="system">[REGION]</span> <span class="info">Europe (3)</span><br>
+<br>
+<span class="header">══════════════════════════════════ AIM TIPS ═══════════════════════════════════</span><br>
+<br>
+<span class="system">[TIP 1]</span> <span class="info">Practice flick shots and tracking moving targets</span><br>
+<span class="system">[TIP 2]</span> <span class="info">Aim for the head - headshots deal more damage</span><br>
+<span class="system">[TIP 3]</span> <span class="info">Use different weapons to improve with all types</span><br>
+<span class="system">[TIP 4]</span> <span class="info">Watch killcam to learn from opponents</span><br>
+<br>
+<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
+<span class="header">│                       PRACTICE MAKES PERFECT - AIM FOR THE HEAD!               │</span><br>
+<span class="header">│                IMPROVE YOUR REFLEXES, ACCURACY, AND GAME SENSE                 │</span><br>
+<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+</div>
+</BODY>
+</HTML>

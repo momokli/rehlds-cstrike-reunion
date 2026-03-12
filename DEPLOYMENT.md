@@ -1,23 +1,27 @@
-# zukka CS 1.6 Tournament System Deployment Guide
+# zukka CS 1.6 LAN Party Server System Deployment Guide
 
 ## Overview
 
-This guide covers the deployment and management of the zukka CS 1.6 LAN Party Server System on a production server. The system includes four distinct Counter-Strike 1.6 servers:
+This guide covers the deployment and management of the zukka CS 1.6 LAN Party Server System on a production server. The system includes eight distinct Counter-Strike 1.6 servers:
 
 1. **Tournament Server** (Port 27015): 5v5 competitive matches on empty maps
 2. **Team Deathmatch Server** (Port 27016): Casual team-based play for up to 16 players
 3. **FFA Deathmatch Server** (Port 27017): Free-for-all with instant respawn
 4. **GunGame Server** (Port 27018): Weapon progression mode for up to 16 players
+5. **Team Deathmatch with Bots** (Port 27019): Casual team play with AI bots
+6. **FFA Deathmatch with Bots** (Port 27020): Free-for-all with AI bots and instant respawn
+7. **Surf Server** (Port 27021): Movement-based surf gameplay with default map surf_water-run_2
+8. **Aim Server** (Port 27022): Fast-paced aim training with default map aim_b0n0_d8c71
 
 ## Prerequisites
 
 ### Server Requirements
 
 - **OS**: Linux (Ubuntu 20.04+ recommended, but any Docker-compatible Linux)
-- **CPU**: 2+ cores (4+ recommended for running all three servers)
+- **CPU**: 2+ cores (4+ recommended for running all eight servers)
 - **RAM**: 4GB+ (8GB+ recommended)
 - **Storage**: 10GB+ free space
-- **Network**: Public IP address with ports 27015-27018 TCP/UDP open
+- **Network**: Public IP address with ports 27015-27022 TCP/UDP open
 
 ### Software Requirements
 
@@ -46,6 +50,22 @@ Ensure the following ports are open in your firewall:
 # GunGame Server
 27018/tcp
 27018/udp
+
+# Team Deathmatch with Bots
+27019/tcp
+27019/udp
+
+# FFA Deathmatch with Bots
+27020/tcp
+27020/udp
+
+# Surf Server
+27021/tcp
+27021/udp
+
+# Aim Server
+27022/tcp
+27022/udp
 ```
 
 ## Initial Deployment
@@ -85,6 +105,11 @@ SERVER_EXTERNAL_IP="your.public.ip.address"
 TOURNAMENT_RCON_PASSWORD="change_this_to_secure_password"
 PUBLIC_RCON_PASSWORD="change_this_to_secure_password"
 PRACTICE_RCON_PASSWORD="change_this_to_secure_password"
+GUNGAME_RCON_PASSWORD="change_this_to_secure_password"
+TDM_BOTS_RCON_PASSWORD="change_this_to_secure_password"
+FFA_BOTS_RCON_PASSWORD="change_this_to_secure_password"
+SURF_RCON_PASSWORD="change_this_to_secure_password"
+AIM_RCON_PASSWORD="change_this_to_secure_password"
 ```
 
 ### 3. Build and Start Servers
