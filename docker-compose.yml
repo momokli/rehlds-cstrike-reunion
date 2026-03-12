@@ -22,6 +22,8 @@ services:
       - ./servers/tournament/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/tournament/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -59,6 +61,8 @@ services:
       - ./servers/public/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/public/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -96,6 +100,8 @@ services:
       - ./servers/practice/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/practice/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -133,6 +139,8 @@ services:
       - ./servers/gungame/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/gungame/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -170,6 +178,8 @@ services:
       - ./servers/tdm-bots/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/tdm-bots/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -207,6 +217,8 @@ services:
       - ./servers/ffa-bots/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/ffa-bots/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -244,6 +256,8 @@ services:
       - ./servers/surf/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/surf/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
@@ -281,6 +295,8 @@ services:
       - ./servers/aim/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/aim/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
+      - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
+      - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
     stdin_open: true
     tty: true
     command:
