@@ -26,12 +26,6 @@ body {
 .warning {
     color: #FF9900;
 }
-.error {
-    color: #FF0000;
-}
-.success {
-    color: #00FF00;
-}
 .highlight {
     color: #FFFFFF;
     font-weight: bold;
@@ -39,102 +33,48 @@ body {
 .command {
     color: #00FFFF;
 }
-.blink {
-    animation: blink 1s infinite;
-}
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
-.map-item {
-    color: #00CCFF;
-}
-.cheat-command {
-    color: #FF00FF;
-}
 </STYLE>
 </HEAD>
 <BODY>
 <div class="console">
-<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
-<span class="header">│                               ZUKKA LAN HUB                                  │</span><br>
-<span class="header">│                         CS 1.6 PRACTICE SERVER v1.0                             │</span><br>
-<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<span class="header">===============================================================</span><br>
+<span class="header">                  ZUKKA FFA DEATHMATCH</span><br>
+<span class="header">                INSTANT RESPAWN - FREE FOR ALL</span><br>
+<span class="header">===============================================================</span><br>
 <br>
-<span class="system">[SYSTEM]</span> <span class="info">LAN_HUB_v0.27.10</span> | <span class="success">ONLINE</span> | <span class="info">00:00:00</span><br>
-<span class="system">[STATUS]</span> <span class="success">PRACTICE_MODE_ACTIVE</span> | <span class="warning">CHEATS_ENABLED</span> | <span class="info">SESSION_TRAINING_2025</span><br>
+<span class="system">[SERVER]</span> <span class="info">zukka FFA Deathmatch</span><br>
+<span class="system">[MODE]</span> <span class="highlight">Free-for-All Deathmatch</span> | <span class="warning">INSTANT RESPAWN</span><br>
+<span class="system">[SLOTS]</span> <span class="info">16 players (Everyone vs Everyone)</span><br>
 <br>
-<span class="system">[SERVER]</span> <span class="info">zukka CS 1.6 Practice Server</span><br>
-<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS 3.12.0 | ReGameDLL 5.26.0</span><br>
-<span class="system">[STATUS]</span> <span class="success">VAC_SECURED</span> | <span class="warning">SV_CHEATS 1</span> | <span class="info">Training Config</span><br>
+<span class="header">------------------- GAME SETTINGS ---------------------</span><br>
 <br>
-<span class="header">════════════════════════════════════ PRACTICE FEATURES ═══════════════════════════════════</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Free-for-All Deathmatch</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">Instant Respawn: ON | All Talk: ON</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">No money system | Weapons on spawn</span><br>
+<span class="system">[SETTINGS]</span> <span class="info">No freeze time | Unlimited play</span><br>
 <br>
-<span class="system">[ECONOMY]</span> <span class="highlight">Unlimited Money: $16,000</span> | <span class="info">Extended Buy Time: 60s</span><br>
-<span class="system">[TIME]</span> <span class="info">No Round Limit</span> | <span class="info">No Time Limit</span> | <span class="info">Freezetime: 0s</span><br>
-<span class="system">[COMBAT]</span> <span class="info">Friendly Fire: OFF</span> | <span class="info">Autokick: DISABLED</span><br>
-<span class="system">[SPECTATE]</span> <span class="info">Free Spectator Mode</span> | <span class="info">All Talk: ENABLED</span><br>
-<span class="system">[CHEATS]</span> <span class="warning">Server Cheats: ENABLED</span> <span class="info">(Practice Commands Available)</span><br>
+<span class="header">------------------ CONNECTION INFO --------------------</span><br>
 <br>
-<span class="header">══════════════════════════════════ PRACTICE COMMANDS ═══════════════════════════════════</span><br>
+<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:[PORT]</span><br>
+<span class="system">[PASSWORD]</span> <span class="info">No password required</span><br>
+<span class="system">[RESPAWN]</span> <span class="info">Instant respawn enabled</span><br>
 <br>
-<span class="system">[WEAPONS]</span> <span class="cheat-command">impulse 101</span> <span class="info">- Full ammo & armor</span><br>
-<span class="system">[MOVEMENT]</span> <span class="cheat-command">sv_gravity [200-800]</span> <span class="info">- Adjust jump height</span><br>
-<span class="system">[AMMO]</span> <span class="cheat-command">sv_infinite_ammo 1</span> <span class="info">- Infinite ammo, no reload</span><br>
-<span class="system">[FLY]</span> <span class="cheat-command">noclip</span> <span class="info">- Fly through walls and objects</span><br>
-<span class="system">[GOD]</span> <span class="cheat-command">god</span> <span class="info">- Invincibility mode</span><br>
-<span class="system">[WEAPON]</span> <span class="cheat-command">give weapon_[name]</span> <span class="info">- Spawn specific weapons</span><br>
-<span class="system">[SPEED]</span> <span class="cheat-command">sv_maxspeed [value]</span> <span class="info">- Adjust movement speed</span><br>
-<span class="system">[RESPAWN]</span> <span class="cheat-command">mp_forcerespawn 1</span> <span class="info">- Instant respawn</span><br>
+<span class="header">------------------ MAP ROTATION ----------------------</span><br>
 <br>
-<span class="header">══════════════════════════════════════ MAP POOL ══════════════════════════════════════</span><br>
+<span class="system">[MAPS]</span> <span class="info">de_dust2, de_inferno, de_nuke</span><br>
+<span class="system">[MAPS]</span> <span class="info">de_train, de_aztec, cs_office</span><br>
+<span class="system">[MAPS]</span> <span class="info">cs_italy, de_dust, de_cbble</span><br>
 <br>
-<span class="system">[STANDARD]</span> <span class="map-item">de_dust2</span> | <span class="map-item">de_inferno</span> | <span class="map-item">de_nuke</span><br>
-<span class="system">[STANDARD]</span> <span class="map-item">de_train</span> | <span class="map-item">de_aztec</span> | <span class="map-item">cs_office</span><br>
-<span class="system">[STANDARD]</span> <span class="map-item">cs_italy</span> | <span class="map-item">de_dust</span> | <span class="map-item">de_cbble</span><br>
-<span class="system">[STANDARD]</span> <span class="map-item">cs_militia</span> | <span class="map-item">de_prodigy</span> | <span class="map-item">de_vertigo</span><br>
+<span class="header">------------------- SERVER INFO ----------------------</span><br>
 <br>
-<span class="header">═══════════════════════════════════ CONNECTION INFO ═══════════════════════════════════</span><br>
+<span class="system">[VERSION]</span> <span class="info">CS 1.6 | ReHLDS | AMX Mod X</span><br>
+<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span><br>
+<span class="system">[REGION]</span> <span class="info">Europe</span><br>
 <br>
-<span class="system">[CONNECT]</span> <span class="command">connect [SERVER_IP]:27017</span><br>
-<span class="system">[PASSWORD]</span> <span class="success">No Password Required - Practice Access</span><br>
-<span class="system">[RCON]</span> <span class="warning">Admin Access: zukka_practice_rcon_secure</span><br>
-<br>
-<span class="header">═══════════════════════════════════════ RULES ════════════════════════════════════════</span><br>
-<br>
-<span class="system">[RULE 1]</span> <span class="warning">THIS IS A PRACTICE SERVER</span> - <span class="info">Be respectful to learners</span><br>
-<span class="system">[RULE 2]</span> <span class="warning">NO COMPETITIVE CHEATING</span> - <span class="info">Practice commands only here</span><br>
-<span class="system">[RULE 3]</span> <span class="warning">HELP OTHERS LEARN</span> - <span class="info">Share tips and strategies</span><br>
-<span class="system">[RULE 4]</span> <span class="warning">NO COMMAND ABUSE</span> - <span class="info">Don't spam or disrupt practice</span><br>
-<span class="system">[RULE 5]</span> <span class="success">PRACTICE HARD, PLAY FAIR!</span> - <span class="info">Improve your skills</span><br>
-<br>
-<span class="header">════════════════════════════════════ PRACTICE FOCUS ═══════════════════════════════════</span><br>
-<br>
-<span class="system">[AIM]</span> <span class="info">Weapon recoil patterns</span> | <span class="info">Flick shots</span> | <span class="info">Spray control</span><br>
-<span class="system">[GRENADES]</span> <span class="info">Smoke setups</span> | <span class="info">Flashbang angles</span> | <span class="info">HE grenade spots</span><br>
-<span class="system">[MOVEMENT]</span> <span class="info">Bunny hopping</span> | <span class="info">Strafe jumping</span> | <span class="info">Silent walking</span><br>
-<span class="system">[POSITIONING]</span> <span class="info">Angle holding</span> | <span class="info">Prefire spots</span> | <span class="info">Rotation timing</span><br>
-<br>
-<span class="header">═══════════════════════════════════════ LINKS ════════════════════════════════════════</span><br>
-<br>
-<span class="system">[TOURNAMENT SERVER]</span> <span class="command">Port 27015</span> - <span class="info">2v2 Competitive Matches</span><br>
-<span class="system">[PUBLIC SERVER]</span> <span class="command">Port 27016</span> - <span class="info">Casual 24-player games</span><br>
-<span class="system">[LAN EVENT]</span> <span class="highlight">lan.zukkafabrik.de</span> - <span class="info">Event Schedule & Info</span><br>
-<span class="system">[TOURNAMENT HUB]</span> <span class="highlight">hub.zukkafabrik.de</span> - <span class="info">Tournament Brackets</span><br>
-<span class="system">[CONTACT]</span> <span class="info">lan@zukkafabrik.de</span> | <span class="info">Region: Europe (3)</span><br>
-<br>
-<span class="header">═══════════════════════════════════════ SYSTEM ═══════════════════════════════════════</span><br>
-<br>
-<span class="system">[AUTH]</span> <span class="success">PRACTICE_MODE_ACTIVE</span> | <span class="info">SESSION_TRAINING_B</span><br>
-<span class="system">[WARNING]</span> <span class="warning">SV_CHEATS 1 ENABLED</span> - <span class="info">Practice commands active</span><br>
-<span class="system">[LOG]</span> <span class="info">Basic Logging: </span><span class="success">ENABLED</span> <span class="info">(mp_logdetail 1)</span><br>
-<span class="system">[TIMEOUT]</span> <span class="info">Extended Timeout: 120s</span> <span class="info">(For practice sessions)</span><br>
-<br>
-<span class="header">┌──────────────────────────────────────────────────────────────────────────────┐</span><br>
-<span class="system">│                          ZUKKA TRAINING & PRACTICE                             │</span><br>
-<span class="header">│                  </span><span class="blink">_</span><span class="header"> PRACTICE HARD, DOMINATE TOURNAMENTS </span><span class="blink">_</span><span class="header">                  │</span><br>
-<span class="header">└──────────────────────────────────────────────────────────────────────────────┘</span><br>
+<span class="header">===============================================================</span><br>
+<span class="header">        PERFECT FOR AIM PRACTICE & FAST-PACED ACTION</span><br>
+<span class="header">          INSTANT RESPAWN - NO WAITING - ALL VS ALL</span><br>
+<span class="header">===============================================================</span><br>
 </div>
 </BODY>
 </HTML>
