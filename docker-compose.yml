@@ -237,7 +237,7 @@ services:
         "+hostname",
         "${SURF_HOSTNAME:-zukka Surf Server}",
         "+map",
-        "de_dust2",
+        "surf_water-run_2",
         "+maxplayers",
         "16",
       ]
@@ -271,7 +271,7 @@ services:
         "+hostname",
         "${AIM_HOSTNAME:-zukka Aim Server}",
         "+map",
-        "de_dust2",
+        "aim_b0n0_d8c71",
         "+maxplayers",
         "16",
       ]
