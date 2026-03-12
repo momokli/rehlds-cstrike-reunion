@@ -35,7 +35,7 @@ services:
         "+hostname",
         "${TOURNAMENT_HOSTNAME:-zukka Tournament 5v5}",
         "+map",
-        "de_dust2",
+        "de_shortdust",
         "+maxplayers",
         "12",
       ]
@@ -287,7 +287,7 @@ services:
         "+hostname",
         "${AIM_HOSTNAME:-zukka Aim Server}",
         "+map",
-        "de_dust2",
+        "aim_b0n0_d8c71",
         "+maxplayers",
         "16",
       ]
