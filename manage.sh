@@ -11,9 +11,17 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DOCKER_COMPOSE_FILE="$PROJECT_ROOT/docker-compose.yml"
 QUERY_SCRIPT="$PROJECT_ROOT/query_server.py"
 
-# Load environment variables
+# Load environment variables - safely extract only PORT variables
 if [ -f "$PROJECT_ROOT/.env" ]; then
-    export $(grep -v '^#' "$PROJECT_ROOT/.env" | xargs)
+    # Extract only PORT variables (safer than exporting everything)
+    TOURNAMENT_PORT=$(grep -E '^TOURNAMENT_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    PUBLIC_PORT=$(grep -E '^PUBLIC_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    PRACTICE_PORT=$(grep -E '^PRACTICE_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    GUNGAME_PORT=$(grep -E '^GUNGAME_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    TDM_BOTS_PORT=$(grep -E '^TDM_BOTS_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    FFA_BOTS_PORT=$(grep -E '^FFA_BOTS_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    SURF_PORT=$(grep -E '^SURF_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
+    AIM_PORT=$(grep -E '^AIM_PORT=' "$PROJECT_ROOT/.env" | cut -d'=' -f2- | xargs || echo "")
 fi
 
 # Color codes for output

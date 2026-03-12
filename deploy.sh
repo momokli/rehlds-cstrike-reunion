@@ -53,11 +53,19 @@ check_docker() {
 check_ports() {
     log "Checking ports..."
 
-    # Source .env if it exists
+    # Load PORT variables from .env if it exists
     if [ -f "$ENV_FILE" ]; then
-        # Export variables from .env
-        export $(grep -v '^#' "$ENV_FILE" | xargs)
-        log "Loaded environment from $ENV_FILE"
+        # Extract only PORT variables (safer than exporting everything)
+        TOURNAMENT_PORT=$(grep -E '^TOURNAMENT_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        PUBLIC_PORT=$(grep -E '^PUBLIC_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        PRACTICE_PORT=$(grep -E '^PRACTICE_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        GUNGAME_PORT=$(grep -E '^GUNGAME_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        TDM_BOTS_PORT=$(grep -E '^TDM_BOTS_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        FFA_BOTS_PORT=$(grep -E '^FFA_BOTS_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        SURF_PORT=$(grep -E '^SURF_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        AIM_PORT=$(grep -E '^AIM_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+
+        log "Loaded port variables from $ENV_FILE"
     fi
 
     # Default ports if not set in .env
@@ -129,9 +137,17 @@ show_status() {
     echo ""
     log "Server ports (from .env or defaults):"
 
-    # Source .env again for ports
+    # Load PORT variables from .env again for display
     if [ -f "$ENV_FILE" ]; then
-        export $(grep -v '^#' "$ENV_FILE" | xargs)
+        # Extract only PORT variables (safer than exporting everything)
+        TOURNAMENT_PORT=$(grep -E '^TOURNAMENT_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        PUBLIC_PORT=$(grep -E '^PUBLIC_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        PRACTICE_PORT=$(grep -E '^PRACTICE_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        GUNGAME_PORT=$(grep -E '^GUNGAME_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        TDM_BOTS_PORT=$(grep -E '^TDM_BOTS_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        FFA_BOTS_PORT=$(grep -E '^FFA_BOTS_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        SURF_PORT=$(grep -E '^SURF_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
+        AIM_PORT=$(grep -E '^AIM_PORT=' "$ENV_FILE" | cut -d'=' -f2- | xargs || echo "")
     fi
 
     echo "  Tournament: ${TOURNAMENT_PORT:-27015}"
