@@ -3,7 +3,7 @@ FROM ghcr.io/blsalin/rehlds-cstrike:latest
 USER root
 
 RUN apt-get update && \
-    apt-get install -y wget unzip && \
+    apt-get install -y wget unzip xz-utils && \
     wget https://github.com/rehlds/ReUnion/releases/download/0.2.0.25/reunion-0.2.0.25.zip && \
     unzip reunion-0.2.0.25.zip -d /tmp/reunion && \
     mkdir -p /opt/steam/hlds/cstrike/addons/reunion && \
@@ -18,7 +18,16 @@ RUN apt-get update && \
     tar -xzf amxmodx-1.10.0-git5474-cstrike-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
     echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
     rm -f amxmodx-1.10.0-git5474-base-linux.tar.gz amxmodx-1.10.0-git5474-cstrike-linux.tar.gz && \
-    apt-get remove -y wget unzip && \
+    wget https://github.com/yapb/yapb/releases/download/4.4.957/yapb-4.4.957-linux.tar.xz && \
+    tar -xf yapb-4.4.957-linux.tar.xz -C /tmp/ && \
+    mkdir -p /opt/steam/hlds/cstrike/addons/yapb && \
+    cp -r /tmp/addons/yapb/* /opt/steam/hlds/cstrike/addons/yapb/ && \
+    cp /tmp/addons/yapb/yapb.cfg /opt/steam/hlds/cstrike/ 2>/dev/null || true && \
+    echo "linux addons/yapb/bin/yapb.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
+    rm -f yapb-4.4.957-linux.tar.xz && \
+    rm -rf /tmp/addons && \
+
+    apt-get remove -y wget unzip xz-utils && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

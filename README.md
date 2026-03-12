@@ -22,6 +22,7 @@ A Docker-based multi-server setup for Counter-Strike 1.6 LAN parties, hosted by 
   - ReUnion (SteamID hash and anti-cheat improvements)
   - AMX Mod X 1.8.2 with GunGame plugin pre-installed
   - Metamod-r (Plugin loader)
+  - **YaPB 4.4.957**: Advanced AI bots for team deathmatch and FFA servers
 
 - **Dockerized Deployment**:
   - Isolated containers for each server
@@ -353,8 +354,6 @@ python3 rcon_test.py gungame test
 python3 rcon_test.py gungame cmd "status"
 ```
 
-```
-
 Common RCON commands:
 
 - `status` - Server status
@@ -382,6 +381,46 @@ This server system is designed to integrate with the zukka tournament infrastruc
 - [blsalin/rehlds-cstrike](https://github.com/blsalin/rehlds-cstrike) - Docker base image
 - **zukka Community** - Tournament organization and LAN events
 
+## YaPB Bot Integration
+
+The system includes **YaPB (Yet Another PodBot)** for advanced AI bots in team deathmatch and FFA servers:
+
+- **Pre-installed YaPB 4.4.957**: Advanced bot AI with waypoint navigation
+- **Automatic bot filling**: Bots automatically join empty servers and leave when real players connect
+- **Configurable difficulty**: Five difficulty levels from easy to nightmare
+- **Enhanced behavior**: Bots use grenades, pick up weapons, and communicate via radio
+- **Metamod integration**: Loads automatically via Metamod plugin system
+
+### Configuration
+
+YaPB is configured in the server configuration files:
+
+- **Team Deathmatch with Bots** (`servers/tdm-bots/server.cfg`): YaPB settings for team-based play
+- **FFA Deathmatch with Bots** (`servers/ffa-bots/server.cfg`): YaPB settings for free-for-all
+
+### YaPB Commands
+
+Common YaPB console commands:
+
+```bash
+yb_add                  # Add a bot
+yb_kick                 # Remove all bots
+yb_difficulty 2         # Set bot difficulty (0-4)
+yb_quota 10             # Set maximum number of bots
+yb_fill_server          # Fill server with bots
+```
+
+### Customizing Bot Behavior
+
+Edit the `yapb.cfg` file in the server's cstrike directory for advanced configuration:
+
+- Bot names and skins
+- Weapon preferences
+- Navigation waypoints
+- Communication settings
+
+The YaPB plugin is automatically included in the Docker image and requires no additional setup.
+
 ## Support
 
 For tournament and server issues:
@@ -390,4 +429,7 @@ For tournament and server issues:
 2. Review server logs with `docker compose logs`
 3. Contact tournament organizers: lan@zukkafabrik.de
 4. Update configuration files in `servers/` directory for server-specific changes
+
+```
+
 ```
