@@ -21,6 +21,7 @@ services:
       - ./servers/tournament/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/tournament/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/tournament/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -57,6 +58,7 @@ services:
       - ./servers/public/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/public/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/public/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -93,6 +95,7 @@ services:
       - ./servers/practice/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/practice/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/practice/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -129,6 +132,7 @@ services:
       - ./servers/gungame/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/gungame/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/gungame/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -165,6 +169,7 @@ services:
       - ./servers/tdm-bots/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/tdm-bots/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/tdm-bots/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -201,6 +206,7 @@ services:
       - ./servers/ffa-bots/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/ffa-bots/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/ffa-bots/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -237,6 +243,7 @@ services:
       - ./servers/surf/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/surf/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/surf/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
@@ -273,6 +280,7 @@ services:
       - ./servers/aim/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/aim/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/aim/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
     stdin_open: true
     tty: true
     command:
