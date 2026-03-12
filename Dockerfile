@@ -18,30 +18,6 @@ RUN apt-get update && \
     tar -xzf amxmodx-1.10.0-git5474-cstrike-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
     echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
     rm -f amxmodx-1.10.0-git5474-base-linux.tar.gz amxmodx-1.10.0-git5474-cstrike-linux.tar.gz && \
-    # Download popular AIM maps
-    mkdir -p /opt/steam/hlds/cstrike/maps && \
-    cd /opt/steam/hlds/cstrike/maps && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_b0n0_d8c71.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_b0n0_d8c71.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_ak-colt.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_ak-colt.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_deagle.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_deagle.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_usp.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_usp.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_awp.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/aim_awp.nav && \
-    # Download popular Surf maps
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_water-run_2.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_water-run_2.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_utopia.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_utopia.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_ski_2.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_ski_2.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_greatriver.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_greatriver.nav && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_akai.bsp && \
-    wget https://fastdl.zukka.xyz/cs16/maps/surf_akai.nav && \
     apt-get remove -y wget unzip && \
     apt-get autoremove -y && \
     apt-get clean && \

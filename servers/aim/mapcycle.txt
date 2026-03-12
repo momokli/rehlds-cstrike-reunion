@@ -1,3 +1,4 @@
+de_dust2
 aim_b0n0_d8c71
 aim_ak-colt
 aim_deagle
