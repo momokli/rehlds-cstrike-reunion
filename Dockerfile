@@ -30,7 +30,7 @@ RUN apt-get update && \
     cp /tmp/addons/yapb/yapb.cfg /opt/steam/hlds/cstrike/ 2>/dev/null || true && \
     rm -f yapb-4.4.957-linux.tar.xz && \
     rm -rf /tmp/addons && \
-    wget https://github.com/rehlds/ReAPI/releases/download/5.26.0.338/reapi-bin-5.26.0.338.zip -O /tmp/reapi.zip && \
+    wget https://github.com/rehlds/ReAPI/releases/download/5.24.0.300/reapi-bin-5.24.0.300.zip -O /tmp/reapi.zip && \
     unzip /tmp/reapi.zip -d /tmp/reapi && \
     mkdir -p /opt/steam/hlds/cstrike/addons/amxmodx/modules && \
     cp /tmp/reapi/addons/amxmodx/modules/reapi_amxx_i386.so /opt/steam/hlds/cstrike/addons/amxmodx/modules/ && \
