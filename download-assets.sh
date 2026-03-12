@@ -20,11 +20,7 @@ MAPS_DIR="${PROJECT_ROOT}/maps"
 PLUGINS_DIR="${PROJECT_ROOT}/plugins"
 
 # Asset URLs (with fallbacks)
-GUNGAME_URLS=(
-    "https://github.com/AMXX-Plugins/GunGame/raw/master/plugins/gungame.amxx"
-    "https://amxmodx.org/amxxdrop/1.10/plugins/gungame.amxx"
-    "https://amxmodx.org/amxxdrop/1.8.2/plugins/gungame.amxx"
-)
+# Note: GunGame is now baked into the Dockerfile via gg_213c_full.zip in repo root
 
 AIM_MAP_URL="https://share.monocu.be/cs1.6-maps/aim_b0n0_d8c71.rar"
 SURF_MAP_URL="https://share.monocu.be/cs1.6-maps/surf/surf_water-run_2/"
@@ -77,36 +73,19 @@ create_directories() {
     log_success "Directories created"
 }
 
-# Download GunGame plugin
-download_gungame() {
-    log_info "Attempting to download GunGame plugin..."
+# Check for GunGame zip file
+check_gungame() {
+    log_info "Checking for GunGame zip file..."
 
-    local downloaded=false
-
-    for url in "${GUNGAME_URLS[@]}"; do
-        log_info "Trying: $url"
-
-        if curl -s -f -L "$url" -o "$PLUGINS_DIR/gungame.amxx.tmp"; then
-            mv "$PLUGINS_DIR/gungame.amxx.tmp" "$PLUGINS_DIR/gungame.amxx"
-            log_success "GunGame plugin downloaded successfully"
-            downloaded=true
-            break
-        else
-            log_warning "Failed to download from $url"
-        fi
-    done
-
-    if [[ "$downloaded" = false ]]; then
-        log_error "Could not download GunGame plugin from any source"
-        log_info ""
-        log_info "Manual installation required:"
-        log_info "1. Find and download gungame.amxx from a reliable source"
-        log_info "2. Place it in: $PLUGINS_DIR/"
-        log_info "3. The file will be automatically installed during Docker build"
+    if [[ -f "$PROJECT_ROOT/gg_213c_full.zip" ]]; then
+        log_success "GunGame zip file found: $PROJECT_ROOT/gg_213c_full.zip"
+        log_info "The Dockerfile will automatically install GunGame from this file."
+        return 0
+    else
+        log_warning "GunGame zip file not found in repository root: gg_213c_full.zip"
+        log_info "Place gg_213c_full.zip in the repository root for automatic installation."
         return 1
     fi
-
-    return 0
 }
 
 # Download aim map
@@ -235,11 +214,8 @@ setup_docker_assets() {
         log_success "Surf map copied to Docker assets"
     fi
 
-    # Copy GunGame plugin if it exists
-    if [[ -f "$PLUGINS_DIR/gungame.amxx" ]]; then
-        cp "$PLUGINS_DIR/gungame.amxx" "$docker_assets_dir/plugins/" 2>/dev/null && \
-        log_success "GunGame plugin copied to Docker assets"
-    fi
+    # GunGame is now baked into the Dockerfile via gg_213c_full.zip
+    # No need to copy plugin separately
 
     log_info "Docker assets ready in: $docker_assets_dir/"
 }
@@ -318,9 +294,9 @@ main() {
     create_directories
 
     if [[ "$skip_gungame" = false ]]; then
-        download_gungame
+        check_gungame
     else
-        log_info "Skipping GunGame download (--skip-gungame)"
+        log_info "Skipping GunGame check (--skip-gungame)"
     fi
 
     if [[ "$skip_maps" = false ]]; then
@@ -347,10 +323,10 @@ main() {
     log_info "Summary of downloaded assets:"
     echo ""
 
-    if [[ -f "$PLUGINS_DIR/gungame.amxx" ]]; then
-        echo -e "  ${GREEN}✓${NC} GunGame plugin: $PLUGINS_DIR/gungame.amxx"
+    if [[ -f "$PROJECT_ROOT/gg_213c_full.zip" ]]; then
+        echo -e "  ${GREEN}✓${NC} GunGame zip file: $PROJECT_ROOT/gg_213c_full.zip"
     else
-        echo -e "  ${RED}✗${NC} GunGame plugin: NOT FOUND (manual installation required)"
+        echo -e "  ${YELLOW}⚠${NC} GunGame zip file: NOT FOUND (place gg_213c_full.zip in repo root)"
     fi
 
     if [[ -f "$MAPS_DIR/aim_b0n0_d8c71.bsp" ]]; then
@@ -381,15 +357,15 @@ show_help() {
     echo "Download missing assets for CS 1.6 server infrastructure"
     echo ""
     echo "Options:"
-    echo "  --skip-gungame    Skip downloading GunGame plugin"
+    echo "  --skip-gungame    Skip checking for GunGame zip file"
     echo "  --skip-maps       Skip downloading aim and surf maps"
     echo "  --skip-docker     Skip Docker asset setup"
     echo "  -h, --help        Show this help message"
     echo ""
     echo "Examples:"
     echo "  $0                    Download all assets"
-    echo "  $0 --skip-maps        Download only GunGame plugin"
-    echo "  $0 --skip-gungame     Download only maps"
+    echo "  $0 --skip-maps        Check only for GunGame zip file"
+    echo "  $0 --skip-gungame     Download only aim and surf maps"
     echo ""
 }
 

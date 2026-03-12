@@ -5,6 +5,7 @@ USER root
 # Copy downloaded assets from build context
 COPY docker-assets/maps/ /opt/steam/hlds/cstrike/maps/
 COPY docker-assets/plugins/ /opt/steam/hlds/cstrike/addons/amxmodx/plugins/
+COPY gg_213c_full.zip /tmp/gg_213c_full.zip
 
 RUN apt-get update && \
     apt-get install -y wget unzip xz-utils && \
@@ -44,9 +45,17 @@ RUN apt-get update && \
     echo "redm_spawns.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini && \
     rm -rf /tmp/redm /tmp/redm.zip && \
     mkdir -p /opt/steam/hlds/cstrike/maps && \
-
-    wget -q https://raw.githubusercontent.com/AMXX-Plugins/GunGame/master/plugins/gungame.amxx -P /opt/steam/hlds/cstrike/addons/amxmodx/plugins/ 2>/dev/null || true && \
-    if [ -f /opt/steam/hlds/cstrike/addons/amxmodx/plugins/gungame.amxx ]; then echo "gungame.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini; fi && \
+    # Install GunGame from local zip file if it exists
+    if [ -f /tmp/gg_213c_full.zip ]; then \
+        echo "Installing GunGame from local zip file..." && \
+        unzip -q /tmp/gg_213c_full.zip -d /tmp/ && \
+        cp -r /tmp/gg_213c_full/addons/amxmodx/* /opt/steam/hlds/cstrike/addons/amxmodx/ && \
+        if [ -d /tmp/gg_213c_full/sound ]; then cp -r /tmp/gg_213c_full/sound/* /opt/steam/hlds/cstrike/sound/ 2>/dev/null || true; fi && \
+        echo "gungame.amxx" >> /opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini && \
+        rm -rf /tmp/gg_213c_full /tmp/gg_213c_full.zip; \
+    else \
+        echo "GunGame zip file not found, skipping installation."; \
+    fi && \
     apt-get remove -y wget unzip xz-utils && \
     apt-get autoremove -y && \
     apt-get clean && \

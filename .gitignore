@@ -84,6 +84,7 @@ lerna-debug.log*
 # Server runtime files
 *.dem
 *.zip
+!gg_213c_full.zip
 *.bz2
 *.gz
 
