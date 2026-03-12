@@ -203,6 +203,20 @@ servers/
     └── motd.txt        # Aim MOTD
 ```
 
+### Map Downloads
+
+Some servers use custom maps that need to be downloaded separately:
+
+1. **Surf Server** (`surf_water-run_2`):
+   - Download: `https://share.monocu.be/cs1.6-maps/surf/surf_water-run_2/`
+   - Place in your CS 1.6 `maps/` folder
+
+2. **Aim Server** (`aim_b0n0_d8c71`):
+   - Download: `https://share.monocu.be/cs1.6-maps/aim_b0n0_d8c71.rar`
+   - Extract and place `.bsp` file in your CS 1.6 `maps/` folder
+
+**Note**: The servers will fall back to `de_dust2` if custom maps are not available on the server. Players can still connect and play.
+
 ### Customizing Configuration
 
 1. Edit the respective `.cfg` files in the `servers/` directory

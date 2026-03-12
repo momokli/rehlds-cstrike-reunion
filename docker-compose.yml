@@ -237,7 +237,7 @@ services:
         "+hostname",
         "${SURF_HOSTNAME:-zukka CS 1.6 Surf Server - Movement & Skill}",
         "+map",
-        "surf_water-run_2",
+        "de_dust2",
         "+maxplayers",
         "16",
       ]
@@ -271,7 +271,7 @@ services:
         "+hostname",
         "${AIM_HOSTNAME:-zukka CS 1.6 Aim Server - Fast-Paced Aim Training}",
         "+map",
-        "aim_b0n0_d8c71",
+        "de_dust2",
         "+maxplayers",
         "16",
       ]
