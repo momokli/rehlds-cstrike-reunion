@@ -12,10 +12,12 @@ RUN apt-get update && \
     sed -i 's/^SteamIdHashSalt.*/SteamIdHashSalt = ThisIsMyRandomSalt123456789/' /opt/steam/hlds/cstrike/reunion.cfg && \
     echo "linux addons/reunion/reunion_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
     rm -rf /tmp/reunion reunion-0.2.0.25.zip && \
-    wget https://github.com/alliedmodders/amxmodx/releases/download/1.8.2/amxmodx-1.8.2-base-linux.tar.gz && \
-    tar -xzf amxmodx-1.8.2-base-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
+    wget https://amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5474-base-linux.tar.gz && \
+    tar -xzf amxmodx-1.10.0-git5474-base-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
+    wget https://amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5474-cstrike-linux.tar.gz && \
+    tar -xzf amxmodx-1.10.0-git5474-cstrike-linux.tar.gz -C /opt/steam/hlds/cstrike/ && \
     echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" >> /opt/steam/hlds/cstrike/addons/metamod/plugins.ini && \
-    rm -f amxmodx-1.8.2-base-linux.tar.gz && \
+    rm -f amxmodx-1.10.0-git5474-base-linux.tar.gz amxmodx-1.10.0-git5474-cstrike-linux.tar.gz && \
     apt-get remove -y wget unzip && \
     apt-get autoremove -y && \
     apt-get clean && \
