@@ -294,6 +294,7 @@ services:
       - ./servers/aim/mapcycle.txt:/opt/steam/hlds/cstrike/mapcycle.txt:ro
       - ./servers/aim/plugins.ini:/opt/steam/hlds/cstrike/addons/metamod/plugins.ini:ro
       - ./servers/aim/plugins-amxx.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins.ini:ro
+      - ./servers/aim/plugins-redm.ini:/opt/steam/hlds/cstrike/addons/amxmodx/configs/plugins-redm.ini:ro
       - ./docker-assets/maps:/opt/steam/hlds/cstrike/maps:ro
       - ./docker-assets/gfx:/opt/steam/hlds/cstrike/gfx:ro
       - ./docker-assets/overviews:/opt/steam/hlds/cstrike/overviews:ro
