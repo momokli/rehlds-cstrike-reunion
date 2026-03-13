@@ -89,8 +89,21 @@ lerna-debug.log*
 download-assets.legacy.sh
 
 # Game server specific
-# Exceptions for docker-assets come first
-!docker-assets/**
+# Exceptions for docker-assets
+!docker-assets/**/*.bsp
+!docker-assets/**/*.amxx
+!docker-assets/**/*.nav
+!docker-assets/**/*.res
+!docker-assets/**/*.txt
+!docker-assets/**/*.bmp
+!docker-assets/**/*.BMP
+!docker-assets/**/*.tga
+!docker-assets/**/*.pcx
+!docker-assets/**/*.lmp
+!docker-assets/**/*.spr
+!docker-assets/**/*.rar
+!docker-assets/**/*.lst
+!docker-assets/**/*.md
 *.bsp
 *.amxx
 *.nav
@@ -103,6 +116,7 @@ download-assets.legacy.sh
 *.lmp
 *.spr
 *.rar
+*.lst
 
 # Security
 *.pem
