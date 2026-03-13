@@ -1,0 +1,62 @@
+# JamesIves/hlds-docker Test Setup
+# Testing Counter-Strike 1.6 server with custom map loading
+# This is a test to see if we can load custom maps without the de_dust2 fallback issue
+
+version: '3.8'
+
+services:
+  cs16-test:
+    # Using Counter-Strike 1.6 image from JamesIves/hlds-docker
+    # Options: jives/hlds:cstrike (Counter-Strike)
+    #          jives/hlds:cstrike-legacy (Pre-25th Anniversary Build)
+    image: jives/hlds:cstrike
+    container_name: cs16-jamesives-test
+    restart: unless-stopped
+    ports:
+      - "27030:27015/udp"  # Game traffic (UDP)
+      - "27030:27015"      # RCON/Query (TCP)
+      - "26900:26900/udp"  # Additional port
+    volumes:
+      # Mount config directory for server.cfg and other configs
+      - ./config:/temp/config:ro
+      # Mount mods directory for custom maps and plugins
+      - ./mods:/temp/mods:ro
+      # Mount our custom maps from the main project
+      - ../docker-assets/maps:/temp/mods/cstrike/maps:ro
+    environment:
+      - GAME=cstrike
+    # Server startup commands
+    # Important: Start with a map that exists in the base image for testing
+    # Then we'll test with custom aim maps
+    command: >
+      +log on
+      +rcon_password "test_rcon_password"
+      +maxplayers 16
+      +map de_dust2
+      +hostname "JamesIves CS1.6 Test Server"
+    stdin_open: true
+    tty: true
+
+  # Optional: Test with legacy version (pre-25th anniversary)
+  cs16-legacy-test:
+    image: jives/hlds:cstrike-legacy
+    container_name: cs16-jamesives-legacy-test
+    restart: unless-stopped
+    ports:
+      - "27031:27015/udp"
+      - "27031:27015"
+      - "26901:26900/udp"
+    volumes:
+      - ./config:/temp/config:ro
+      - ./mods:/temp/mods:ro
+      - ../docker-assets/maps:/temp/mods/cstrike/maps:ro
+    environment:
+      - GAME=cstrike
+    command: >
+      +log on
+      +rcon_password "test_rcon_password"
+      +maxplayers 16
+      +map de_dust2
+      +hostname "JamesIves CS1.6 Legacy Test"
+    stdin_open: true
+    tty: true
