@@ -1,0 +1,12 @@
+global 
+{
+	ZOOM	3.72
+	ORIGIN	72	-952	-2561
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/aim_b0n0.bmp"
+	HEIGHT	-2561
+}

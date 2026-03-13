@@ -36,9 +36,11 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+!docker-assets/gfx/env
+
 # Virtual Environments
 venv/
-env/
+# env/
 ENV/
 env.bak/
 venv.bak/
@@ -86,39 +88,7 @@ lerna-debug.log*
 !gg_213c_full.zip
 *.bz2
 *.gz
-download-assets.legacy.sh
 
-# Game server specific
-# Exceptions for docker-assets
-!docker-assets/**/*.bsp
-!docker-assets/**/*.amxx
-!docker-assets/**/*.nav
-!docker-assets/**/*.res
-!docker-assets/**/*.txt
-!docker-assets/**/*.bmp
-!docker-assets/**/*.BMP
-!docker-assets/**/*.tga
-!docker-assets/**/*.pcx
-!docker-assets/**/*.lmp
-!docker-assets/**/*.spr
-!docker-assets/**/*.rar
-!docker-assets/**/*.lst
-!docker-assets/**/*.md
-*.bsp
-*.amxx
-*.nav
-*.res
-*.txt
-*.bmp
-*.BMP
-*.tga
-*.pcx
-*.lmp
-*.spr
-*.rar
-*.lst
-
-# Security
 *.pem
 *.key
 *.crt
