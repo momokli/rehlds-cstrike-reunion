@@ -235,7 +235,7 @@ services:
         "+map",
         "de_dust2",
         "+maxplayers",
-        "16",
+        "20",
       ]
 
   surf-server:
